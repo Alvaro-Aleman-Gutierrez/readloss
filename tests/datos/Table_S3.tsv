@@ -1,0 +1,244 @@
+species	run	BioProject	voucher	spots_analysed	reads_DCX	expected_DCX	obs_exp	DCX_status	tip_in_Sudasinghe_2026_tree	miniaturization	reads_DCX_15M	expected_DCX_15M	obs_exp_15M	note
+Aborichthys elongatus	SRR39401082	PRJNA1483025	LR15343	15000000.0	42.0	78.5	0.535	present	Cobitoidei_Nemacheilidae_Aborichthys_elongatus_LR15343	non-miniature				
+Abramis brama	SRR39401252	PRJNA1483025	1360_2014	15000000.0	24.0	35.8	0.671	present	Cyprinoidei_Leuciscidae_Abramis_brama_GCA_963993115.1_NCBI	non-miniature				
+Acantopsis sp	SRR39401093	PRJNA1483025		15000000.0	29.0	43.8	0.661	present	Cobitoidei_Cobitidae_Acantopsis_sp_LR15340					
+Acapoeta tanganicae	SRR39401081	PRJNA1483025	LR15266	15000000.0	23.0	50.6	0.455	present	Cyprinoidei_Cyprinidae_Acapoeta_tanganicae_LR15266	non-miniature				
+Acheilognathus deignani	SRR39401086	PRJNA1483025	LR15562	15000000.0	40.0	56.6	0.707	present	Cyprinoidei_Acheilognathidae_Acheilognathus_deignani_LR15562	non-miniature				
+Acheilognathus sp	SRR39401085	PRJNA1483025	LR15063	15000000.0	27.0	45.2	0.598	present	Cyprinoidei_Acheilognathidae_Acheilognathus_sp_LR15063	non-miniature				
+Acrossocheilus sp	SRR39401080	PRJNA1483025	123LR15726	15000000.0	26.0	42.1	0.618	present		non-miniature				
+Ageneiogarra sp	SRR39401079	PRJNA1483025	LR15615	15000000.0	20.0	35.1	0.57	present	Cyprinoidei_Cyprinidae_Ageneiogarra_sp_LR15615	non-miniature				
+Alburnoides bipunctatus	SRR39401250	PRJNA1483025	2180_2012	15000000.0	21.0	34.7	0.606	present	Cyprinoidei_Leuciscidae_Alburnoides_bipunctatus_2180_2012	non-miniature				
+Ambastaia sidthimunki	SRR39401255	PRJNA1483025	LR15330	15000000.0	37.0	97.3	0.38	present	Cobitoidei_Botiidae_Ambastaia_sidthimunki_LR15330	non-miniature				
+Amblypharyngodon chulabhornae	SRR39401157	PRJNA1483025	LR01638	15000000.0	35.0	61.5	0.569	present	Cyprinoidei_Danionidae_Amblypharyngodon_chulabhornae_LR01638	non-miniature				
+Amblypharyngodon sp	ERR3332378	PRJEB19273		15000000.0	48.0	62.6	0.766	present	Cyprinoidei_Danionidae_Amblypharyngodon_sp_fAmbSpp1	non-miniature				
+Annamia sp	SRR39401169	PRJNA1483025	LR15180	15000000.0	51.0	99.1	0.515	present	Cobitoidei_Gastromyzontidae_Annamia_sp_LR15180	non-miniature				
+Aperioptus robertsi	SRR39401094	PRJNA1483025	115LR15715	15000000.0	40.0	53.9	0.742	present	Cobitoidei_Cobitidae_Acanthopsoides_robertsi_115LR15715	non-miniature				
+Balantiocheilos melanopterus	SRR39401078	PRJNA1483025	LR15639	15000000.0	24.0	53.9	0.445	present	Cyprinoidei_Cyprinidae_Balantiocheilos_melanopterus_LR15639	non-miniature				
+Balitora sp	SRR39401208	PRJNA1483025	LR15354	15000000.0	66.0	89.9	0.734	present	Cobitoidei_Balitoridae_Balitora_sp_LR15354	non-miniature				
+Balitoropsis zollingeri	SRR39401044	PRJNA1483025	LR15094	15000000.0	55.0	103.1	0.533	present	Cobitoidei_Balitoridae_Balitoropsis_zollingeri_LR15094	non-miniature				
+Barbatula sp	SRR39401050	PRJNA1483025	LR15190	15000000.0	35.0	56.1	0.623	present	Cobitoidei_Nemacheilidae_Barbatula_sp_LR15190	non-miniature				
+Barbichthys laevis	SRR39401154	PRJNA1483025	LR15079	15000000.0	18.0	49.2	0.366	present	Cyprinoidei_Cyprinidae_Barbichthys_laevis_LR15079	non-miniature				
+Barbodes sellifer	SRR39401151	PRJNA1483025	120LR15721	15000000.0	17.0	48.3	0.352	present	Cyprinoidei_Cyprinidae_Barbodes_sellifer_120LR15721	non-miniature				
+Barboides gracilis	SRR39401150	PRJNA1483025	LR15256		35.0	58.4	0.6	present	Cyprinoidei_Cyprinidae_Barboides_gracilis_LR15256	proportioned-dwarf				
+Barbonymus altus	SRR39401149	PRJNA1483025	EA0124	15000000.0	25.0	49.7	0.503	present	Cyprinoidei_Cyprinidae_Barbonymus_altus_EA0124	non-miniature				
+Barbucca elongata	SRR39401194	PRJNA1483025	LR15360	15000000.0	60.0	102.4	0.586	present	Cobitoidei_Barbuccidae_Barbucca_elongatus_LR15360	proportioned-dwarf				
+Barilius mesopotamicus	SRR39401220	PRJNA1483025	LR15576	15000000.0	31.0	61.1	0.508	present	Cyprinoidei_Danionidae_Barilius_mesopotamicus_LR15576	non-miniature				
+Beaufortia kweichowensis	SRR39401168	PRJNA1483025	LR15085	15000000.0	59.0	85.2	0.692	present	Cobitoidei_Gastromyzontidae_Beaufortia_kweichowensis_GCA_019155185.1_NCBI	non-miniature				
+Bibarba sp	SRR39401092	PRJNA1483025	LR15193	15000000.0	54.0	72.2	0.747	present	Cobitoidei_Cobitidae_Bibarba_sp_LR15193	non-miniature				
+Boraras brigittae	SRR36627391	PRJNA1393767	LR15871	4684852.0	151.0	419.4	0.36	present	Cyprinoidei_Danionidae_Boraras_brigittae_LR15871	proportioned-dwarf				
+Boraras maculatus	ERR3332319	PRJEB19273		15000000.0	22.0	35.3	0.622	present	Cyprinoidei_Danionidae_Boraras_maculatus_fBorMac1	proportioned-dwarf				
+Boraras micros	SRR39401219	PRJNA1483025	LR12206		30.0	40.9	0.733	present	Cyprinoidei_Danionidae_Boraras_micros_LR12206	proportioned-dwarf				
+Boraras urophthalmoides	SRR39401217	PRJNA1483025	LR12190		25.0	42.9	0.582	present	Cyprinoidei_Danionidae_Boraras_urophthalmoides_LR12190	proportioned-dwarf				
+Botia kubotai	SRR39401107	PRJNA1483025	LR15149	15000000.0	60.0	84.8	0.708	present	Cobitoidei_Botiidae_Botia_kubotai_LR15149	non-miniature				
+Brevibora cheeya	SRR39401141	PRJNA1483025	LR09154	15000000.0	21.0	41.8	0.502	present	Cyprinoidei_Danionidae_Brevibora_cheeya_LR09154	proportioned-dwarf				
+Brevibora dorsiocellata	SRR39401139	PRJNA1483025	LR11616		26.0	45.9	0.567	present	Cyprinoidei_Danionidae_Brevibora_dorsiocellata_LR11616	proportioned-dwarf				
+Cabdio morar	SRR39401122	PRJNA1483025	LR15567	15000000.0	33.0	73.4	0.45	present	Cyprinoidei_Danionidae_Cabdio_morar_LR15567	non-miniature				
+Candidia pingtungensis	SRR39401241	PRJNA1483025	118LR15719	15000000.0	38.0	53.9	0.705	present	Cyprinoidei_Xenocyprididae_Candidia_pingtungensis_118LR15719	non-miniature				
+Canthophrys gongota	SRR39401091	PRJNA1483025	LR15575	15000000.0	38.0	59.5	0.639	present	Cobitoidei_Cobitidae_Canthophrys_gongota_LR15575	non-miniature				
+Catostomus commersonii	SRR39401265	PRJNA1483025		15000000.0	30.0	31.3	0.958	present						
+Ceratogarra cambodgiensis	SRR39401147	PRJNA1483025	LR15111	15000000.0	27.0	54.6	0.495	present	Cyprinoidei_Cyprinidae_Ceratogarra_cambodgiensis_LR15111	non-miniature				
+Chagunius sp	SRR39401146	PRJNA1483025	EA0357	15000000.0	23.0	60.6	0.379	present	Cyprinoidei_Cyprinidae_Chagunius_sp_EA0401	non-miniature				
+Chagunius sp	SRR39401145	PRJNA1483025	EA0401	15000000.0	28.0	48.1	0.582	present	Cyprinoidei_Cyprinidae_Chagunius_sp_EA0401	non-miniature				
+Chela cachius	ERR3332386	PRJEB19273		15000000.0	20.0	35.3	0.566	present	Cyprinoidei_Danionidae_Chela_cachius_fCheCac1	non-miniature				
+Chelaethiops elongatus	SRR39401121	PRJNA1483025	131LR08589	15000000.0	34.0	62.2	0.547	present	Cyprinoidei_Danionidae_Chelaethiops_elongatus_131LR08589	non-miniature				
+Chelaethiops sp	SRR39401120	PRJNA1483025	LR15596	15000000.0	43.0	55.0	0.781	present	Cyprinoidei_Danionidae_Chelaethiops_sp_LR15596	non-miniature				
+Chelaethiops sp	SRR39401118	PRJNA1483025	LR15597	15000000.0	35.0	70.7	0.495	present	Cyprinoidei_Danionidae_Chelaethiops_sp_LR15597	non-miniature				
+Chromobotia macracanthus	SRR39401183	PRJNA1483025	LR15148	15000000.0	63.0	91.7	0.687	present	Cobitoidei_Botiidae_Chromobotia_macracanthus_LR15148	non-miniature				
+Chrosomus erythrogaster	SRR39401186	PRJNA1483025	108LR15742	15000000.0	11.0	29.5	0.373	present	Cyprinoidei_Leuciscidae_Chrosomus_sp_108LR15742	non-miniature				
+Clypeobarbus sp	SRR39401144	PRJNA1483025	LR15270	15000000.0	23.0	36.9	0.623	present	Cyprinoidei_Cyprinidae_Clypeobarbus_sp_LR15270	non-miniature				
+Cobitis sp	SRR39401052	PRJNA1483025	LR15465	15000000.0	0.0	19.0	0.0	absent	Cobitoidei_Cobitidae_Cobitis_sp_LR15465	non-miniature				
+Crossocheilus reticulatus	SRR39401143	PRJNA1483025	LR10955	15000000.0	17.0	32.7	0.521	present	Cyprinoidei_Cyprinidae_Crossocheilus_reticulatus_LR10955	non-miniature				
+Cycleptus sp	SRR39401240	PRJNA1483025	LR15247	15000000.0	25.0	32.7	0.766	present	Catostomoidei_Catostomidae_Cycleptus_sp_LR15247	non-miniature				
+Cyclocheilichthys apogon	SRR39401142	PRJNA1483025	LR10341	15000000.0	24.0	47.6	0.504	present	Cyprinoidei_Cyprinidae_Cyclocheilichthys_apogon_LR10341	non-miniature				
+Cyprinella lutrensis	SRR39401185	PRJNA1483025	LR15250	15000000.0	27.0	38.2	0.706	present	Cyprinoidei_Leuciscidae_Cyprinella_lutrensis_GCA_027497675.1_NCBI	non-miniature				
+Danio aesculapii	ERR3655543	PRJEB19273		15000000.0	0.0	28.9	0.0	absent	Cyprinoidei_Danionidae_Danio_aesculapii_GCF_903798145.1_NCBI	non-miniature				
+Danio albolineatus	ERR3284960	PRJEB19273		15000000.0	0.0	21.2	0.0	absent	Cyprinoidei_Danionidae_Danio_albolineatus_GCA_903798035.1_NCBI	non-miniature				
+Danio choprae	ERR3284956	PRJEB19273		15000000.0	1.0	21.5	0.047	absent	Cyprinoidei_Danionidae_Danio_choprai_GCA_903798125.1_NCBI	non-miniature				
+Danio erythromicron	SRR39401137	PRJNA1483025	LR01642		0.0	39.8	0.0	absent	Cyprinoidei_Danionidae_Danio_erythromicron_LR01642	proportioned-dwarf				
+Danio jaintianensis	ERR3284968	PRJEB19273		15000000.0	0.0	22.6	0.0	absent	Cyprinoidei_Danionidae_Danio_jaintianensis_GCA_903798115.1_NCBI	non-miniature				
+Danio kyathit	ERR3655545	PRJEB19273		15000000.0	0.0	17.7	0.0	absent	Cyprinoidei_Danionidae_Danio_kyathit_GCA_903798195.1_NCBI	non-miniature				
+Danio margaritatus	SRR39401136	PRJNA1483025	LR02056		2.0	43.8	0.046	absent	Cyprinoidei_Danionidae_Danio_margaritatus_LR02056	proportioned-dwarf				
+Danio rerio	ERR4021773	PRJEB19273		15000000.0	0.0	216.3	0.0	absent	Cyprinoidei_Danionidae_Danio_rerio_GCA_944039275.1_NCBI	non-miniature				
+Danio tinwini	ERR3284971	PRJEB19273		15000000.0	0.0	18.6	0.0	absent	Cyprinoidei_Danionidae_Danio_tinwini_GCA_903798205.1_NCBI	proportioned-dwarf				
+Danionella cerebrum	ERR3284980	PRJEB19273		15000000.0	28.0	35.6	0.787	present	Cyprinoidei_incertae.sedis_Danionella_cerebrum_GCA_903798025.1_NCBI	progenetic-miniature				
+Danionella dracula	ERR2639755	PRJEB19273		15000000.0	0.0	25.9	0.0	absent	Cyprinoidei_incertae.sedis_Danionella_dracula_GCA_900490495.1_NCBI	progenetic-miniature				
+Dawkinsia denisonii	SRR39401166	PRJNA1483025	145LR15691	15000000.0	25.0	58.8	0.425	present	Cyprinoidei_Cyprinidae_Sahyadria_denisonii_145LR15691	non-miniature				
+Desmopuntius sp	SRR39401049	PRJNA1483025	140LR15737	15000000.0	27.0	53.9	0.501	present	Cyprinoidei_Cyprinidae_Desmopuntius_sp_140LR15737	non-miniature				
+Devario aequipinnatus	ERR3332370	PRJEB19273		15000000.0	8.0	25.1	0.319	present						
+Devario devario	ERR3332371	PRJEB19273		15000000.0	8.0	23.5	0.341	present	Cyprinoidei_Danionidae_Devario_devario_fDevDev2	non-miniature				
+Devario sondhii	SRR39401135	PRJNA1483025	144LR15698		30.0	35.8	0.838	present	Cyprinoidei_Danionidae_Devario_sondhii_144LR15698	non-miniature				
+Dionda flavipinnis	SRR39401182	PRJNA1483025	LR15252	15000000.0	28.0	44.1	0.635	present	Cyprinoidei_Leuciscidae_Dionda_sp_LR15252	non-miniature				
+Discherodontus ashmeadi	SRR39401047	PRJNA1483025	122LR15725	15000000.0	20.0	53.2	0.376	present	Cyprinoidei_Cyprinidae_Discherodontus_ashmeadi_122LR15725	non-miniature				
+Eirmotus sp	SRR39401076	PRJNA1483025	LR09582	15000000.0	29.0	58.4	0.497	present	Cyprinoidei_Cyprinidae_Eirmotus_sp_LR09582	non-miniature				
+Eirmotus sp	SRR39401046	PRJNA1483025	119LR15720	15000000.0	22.0	62.0	0.355	present	Cyprinoidei_Cyprinidae_Eirmotus_sp_119LR15720	non-miniature				
+Ellopostoma mystax	SRR39401170	PRJNA1483025	141LR15748	15000000.0	49.0	77.6	0.631	present	Cobitoidei_Ellopostomatidae_Ellopostoma_mystax_141LR15748	non-miniature				
+Engraulicypris sp	SRR39401134	PRJNA1483025	LR15598	15000000.0	49.0	75.6	0.648	present	Cyprinoidei_Danionidae_Engraulicypris_sp_LR15598	non-miniature				
+Engraulicypris sp	SRR39401133	PRJNA1483025	LR15656	15000000.0	46.0	66.9	0.688	present	Cyprinoidei_Danionidae_Engraulicypris_sp_LR15656	non-miniature				
+Enteromius sp	SRR39401074	PRJNA1483025	LR15276	15000000.0	18.0	42.1	0.428	present	Cyprinoidei_Cyprinidae_Enteromius_sp_LR15606	non-miniature				
+Enteromius sp	SRR39401042	PRJNA1483025	LR15606	15000000.0	36.0	49.9	0.722	present	Cyprinoidei_Cyprinidae_Enteromius_sp_LR15606	non-miniature				
+Epalzeorhynchos kalopterus	SRR39401041	PRJNA1483025	LR01655	15000000.0	19.0	29.3	0.648	present	Cyprinoidei_Cyprinidae_Epalzeorhynchos_kalopterum_LR01655	non-miniature				
+Erimyzon sucetta	SRR39401184	PRJNA1483025	LR15245	15000000.0	25.0	42.3	0.591	present	Catostomoidei_Catostomidae_Erimyzon_sucetta_LR15245	non-miniature				
+Erromyzon sp	SRR39401061	PRJNA1483025	LR15491	15000000.0	62.0	93.5	0.663	present	Cobitoidei_Gastromyzontidae_Erromyzon_sp_LR15491	non-miniature				
+Esomus danrica	SRR39401132	PRJNA1483025	116LR15716	15000000.0	43.0	78.1	0.551	present	Cyprinoidei_Danionidae_Esomus_danricus_116LR15716	non-miniature				
+Esomus metallicus	SRR39401131	PRJNA1483025	LR01653		65.0	80.1	0.812	present	Cyprinoidei_Danionidae_Esomus_metallicus_LR01653	non-miniature				
+Esomus sp	SRR39401130	PRJNA1483025	LR12503	15000000.0	33.0	77.6	0.425	present	Cyprinoidei_Danionidae_Esomus_sp_LR12503	non-miniature				
+Fangfangia spinicleithralis	SRR39401249	PRJNA1483025	100LR08982		21.0	44.1	0.477	present	Cyprinoidei_incertae.sedis_Fangfangia_spinicleithralis_100LR08982	progenetic-miniature				
+Folifer brevifilis	SRR39401040	PRJNA1483025	LR15563	15000000.0	38.0	48.1	0.79	present	Cyprinoidei_Cyprinidae_Folifer_brevifilis_LR15563	non-miniature				
+Gila pandora	SRR39401181	PRJNA1483025	110LR15746	15000000.0	38.0	34.9	1.089	present	Cyprinoidei_Leuciscidae_Gila_pandora_110LR15746	non-miniature				
+Glaniopsis multiradiata	SRR39401060	PRJNA1483025	LR15090	15000000.0	51.0	84.6	0.603	present	Cobitoidei_Gastromyzontidae_Glaniopsis_muliradiatus_LR15090	non-miniature				
+Gyrinocheilus pustulosus	SRR39401098	PRJNA1483025	LR15097	15000000.0	39.0	94.6	0.412	present	Gyrinocheiloidei_Gyrinocheilidae_Gyrinocheilus_pustulosus_LR15097	non-miniature				
+Gyrinocheilus sp	SRR39401096	PRJNA1483025	104EA0138	15000000.0	52.0	78.3	0.664	present	Gyrinocheiloidei_Gyrinocheilidae_Gyrinocheilus_sp_104EA0138	non-miniature				
+Haludaria fasciata	SRR39401039	PRJNA1483025	LR15635	15000000.0	43.0	62.0	0.694	present	Cyprinoidei_Cyprinidae_Haludaria_fasciata_LR15635	non-miniature				
+Hampala ampalong	SRR39401038	PRJNA1483025	LR15078	15000000.0	37.0	58.8	0.629	present	Cyprinoidei_Cyprinidae_Hampala_ampalong_LR15078	non-miniature				
+Hemibarbus maculatus	SRR39401106	PRJNA1483025	LR15569	15000000.0	16.0	38.7	0.413	present	Cyprinoidei_Gobionidae_Hemibarbus_maculatus_LR15569	non-miniature				
+Hemiculter sp	SRR39401103	PRJNA1483025	103LR15622	15000000.0	17.0	38.5	0.442	present	Cyprinoidei_Xenocyprididae_Hemiculter_sp_103LR15622	non-miniature				
+Hemimyzon formosanus	SRR39401148	PRJNA1483025	LR15176	15000000.0	51.0	82.1	0.621	present	Cobitoidei_Balitoridae_Hemimyzon_formosanum_LR15176	non-miniature				
+Homaloptera sp	SRR39401075	PRJNA1483025	LR15139	15000000.0	79.0	88.4	0.894	present	Cobitoidei_Balitoridae_Homaloptera_sp_LR15139	non-miniature				
+Homalopteroides stephensoni	SRR39401239	PRJNA1483025	LR15140	15000000.0	50.0	91.9	0.544	present	Cobitoidei_Balitoridae_Homalopteroides_stephensoni_LR15140	non-miniature				
+Homalopteroides tweediei	SRR39401159	PRJNA1483025	LR15093	15000000.0	57.0	100.2	0.569	present	Cobitoidei_Balitoridae_Homalopteroides_tweediei_LR15093	proportioned-dwarf				
+Homalopterula gymnogaster	SRR39401228	PRJNA1483025	LR15091	15000000.0	74.0	105.8	0.699	present	Cobitoidei_Balitoridae_Homalopterula_gymnogaster_LR15091	non-miniature				
+Homatula variegata	SRR39401048	PRJNA1483025	LR15073	15000000.0	46.0	56.4	0.816	present	Cobitoidei_Nemacheilidae_Homatula_variegata_LR15073	non-miniature				
+Horadandia atukorali	ERR3332354	PRJEB19273			33.0	72.5	0.455	present	Cyprinoidei_Danionidae_Horadandia_atukorali_fHorAtu1	proportioned-dwarf				
+Hybognathus nuchalis	SRR39401180	PRJNA1483025	LR15253	15000000.0	29.0	36.2	0.8	present		non-miniature				
+Ictalurus furcatus	SRR18966194				50.0	46.1	1.085	present	Siluriformes_Ictaluridae_Ictalurus_furcatus_GCF_023375685.1_NCBI					
+Ictiobus bubalus	SRR39401051	PRJNA1483025		15000000.0	15.0	24.2	0.621	present						
+Inlecypris auropurpureus	SRR39401129	PRJNA1483025	LR01646	15000000.0	20.0	32.2	0.621	present	Cyprinoidei_Danionidae_Inlecypris_auropurpurea_LR01646	non-miniature				
+Katibasia insidiosa	SRR39401059	PRJNA1483025	LR15133	15000000.0	47.0	90.4	0.52	present	Cobitoidei_Gastromyzontidae_Katibasia_insidiosa_LR15133	non-miniature				
+Kottelatia brittani	SRR39401127	PRJNA1483025	LR01674		25.0	66.7	0.375	present	Cyprinoidei_Danionidae_Kottelatia_brittani_LR01674	non-miniature				
+Kottelatlimia katik	SRR39401177	PRJNA1483025	LR15170	15000000.0	19.0	37.6	0.506	present	Cobitoidei_Cobitidae_Kottelatlimia_katik_LR15170	proportioned-dwarf				
+Kottelatlimia pristes	SRR39401176	PRJNA1483025	114LR15714	15000000.0	16.0	42.3	0.378	present	Cobitoidei_Cobitidae_Kottelatlimia_pristes_114LR15714	non-miniature				
+Labeo cylindricus	SRR39401037	PRJNA1483025	LR15278	15000000.0	33.0	35.6	0.928	present	Cyprinoidei_Cyprinidae_Labeo_sp_LR15278	non-miniature				
+Labeobarbus sp	SRR39401036	PRJNA1483025	LR15282	15000000.0	32.0	42.3	0.757	present		non-miniature				
+Labiobarbus ocellatus	SRR39401035	PRJNA1483025	LR12884	15000000.0	27.0	30.6	0.881	present	Cyprinoidei_Cyprinidae_Labiobarbus_ocellatus_LR12884	non-miniature				
+Ladislavia taczanowskii	SRR39401105	PRJNA1483025	LR15570	15000000.0	17.0	28.9	0.589	present	Cyprinoidei_Gobionidae_Ladislavia_taczanowskii_LR15570	non-miniature				
+Laubuka siamensis	ERR3332320	PRJEB19273		15000000.0	11.0	28.6	0.384	present	Cyprinoidei_Danionidae_Laubuka_siamensis_fLauMye1	non-miniature				
+Laubuka sp	SRR39401126	PRJNA1483025	132LR09413	15000000.0	18.0	34.7	0.519	present	Cyprinoidei_Danionidae_Laubuka_sp_132LR09413	non-miniature				
+Laubuka sp	SRR39401125	PRJNA1483025	LR02238	15000000.0	12.0	34.7	0.346	present	Cyprinoidei_Danionidae_Laubuka_sp_132LR09413	non-miniature				
+Lefua sp	SRR39401215	PRJNA1483025	LR15462	15000000.0	35.0	74.9	0.467	present	Cobitoidei_Nemacheilidae_Lefua_sp_LR15462	non-miniature				
+Lepidocephalichthys sp	SRR39401175	PRJNA1483025	LR15467	15000000.0	32.0	68.2	0.469	present	Cobitoidei_Cobitidae_Lepidocephalichthys_sp_LR15467	non-miniature				
+Leptobarbus sp	SRR39401062	PRJNA1483025	LR15106	15000000.0	15.0	39.4	0.381	present	Cyprinoidei_Leptobarbidae_Leptobarbus_sp_LR15106	non-miniature				
+Leptobotia elongata	SRR39401067	PRJNA1483025	LR15074	15000000.0	49.0	71.6	0.685	present	Cobitoidei_Botiidae_Leptobotia_elongata_LR15074	non-miniature				
+Leptocypris sp	SRR39401124	PRJNA1483025	LR15601	15000000.0	21.0	54.1	0.388	present	Cyprinoidei_Danionidae_Leptocypris_sp_LR15601	non-miniature				
+Lepturichthys fimbriata	SRR39401156	PRJNA1483025	LR15172	15000000.0	35.0	75.6	0.463	present	Cobitoidei_Balitoridae_Lepturichthys_fimbriatus_LR15172	non-miniature				
+Leuciscus leuciscus	SRR39401179	PRJNA1483025	2223_2013	15000000.0	24.0	37.1	0.646	present	Cyprinoidei_Leuciscidae_Leuciscus_leuciscus_2223_2013	non-miniature				
+Liniparhomaloptera disparis	SRR39401058	PRJNA1483025	LR15175	15000000.0	46.0	89.7	0.513	present	Cobitoidei_Gastromyzontidae_Liniparhomaloptera_disparis_LR15175	non-miniature				
+Lobocheilos aurolineatus	SRR39401077	PRJNA1483025	LR15104	15000000.0	24.0	44.3	0.542	present	Cyprinoidei_Cyprinidae_Lobocheilos_aureolineatus_LR15104	non-miniature				
+Luciosoma sp	ERR3332355	PRJEB19273		15000000.0	37.0	66.7	0.555	present	Cyprinoidei_Danionidae_Luciosoma_sp_LR01659	non-miniature				
+Luciosoma sp	SRR39401123	PRJNA1483025	LR01659	15000000.0	30.0	64.6	0.464	present	Cyprinoidei_Danionidae_Luciosoma_sp_LR01659	non-miniature				
+Malayochela maassi	SRR39401263	PRJNA1483025	LR15378	15000000.0	39.0	62.2	0.627	present	Cyprinoidei_Danionidae_Malayochela_maassi_LR15098	non-miniature				
+Microdevario kubotai	SRR39401261	PRJNA1483025	LR15568		31.0	39.8	0.779	present	Cyprinoidei_Danionidae_Microdevario_kubotai_LR15568	proportioned-dwarf				
+Micronemacheilus sp	SRR39401214	PRJNA1483025	LR15337	15000000.0	26.0	78.7	0.33	present	Cobitoidei_Nemacheilidae_Micronemacheilus_sp_LR15337	non-miniature				
+Microphysogobio tafangensis	SRR39401104	PRJNA1483025	LR15062	15000000.0	25.0	47.4	0.527	present	Cyprinoidei_Gobionidae_Microphysogobio_tafangensis_LR15062	non-miniature				
+Misgurnus sp	SRR39401174	PRJNA1483025	LR15162	15000000.0	1.0	23.9	0.042	absent		non-miniature				
+Moxostoma congestum	SRR39401167	PRJNA1483025	LR15248	15000000.0	26.0	30.2	0.861	present	Catostomoidei_Catostomidae_Moxostoma_congestum_LR15248	non-miniature				
+Mystacoleucus argenteus	SRR39401238	PRJNA1483025	LR15565	15000000.0	38.0	59.5	0.639	present	Cyprinoidei_Cyprinidae_Mystacoleucus_argenteus_LR15565	non-miniature				
+Myxocyprinus asiaticus	SRR39401083	PRJNA1483025	LR15059	15000000.0	14.0	31.5	0.444	present	Catostomoidei_Catostomidae_Myxocyprinus_asiaticus_GCF_019703515.2_NCBI	non-miniature				
+Nemacheilus selangoricus	SRR39401213	PRJNA1483025	LR15459	15000000.0	48.0	83.4	0.575	present	Cobitoidei_Nemacheilidae_Nemacheilus_selangoricus_LR15459	non-miniature				
+Nematabramis everetti	SRR39401203	PRJNA1483025	121LR15723	15000000.0	21.0	48.5	0.433	present	Cyprinoidei_Danionidae_Nematabramis_everetti_121LR15723	non-miniature				
+Nematabramis steindachnerii	SRR39401202	PRJNA1483025	LR15099	15000000.0	32.0	55.5	0.577	present	Cyprinoidei_Danionidae_Nematabramis_steindachneri_LR15099	non-miniature				
+Neochela dadiburjori	SRR39401201	PRJNA1483025	LR14062	15000000.0	26.0	48.5	0.536	present	Cyprinoidei_Danionidae_Neochela_dadiburjori_LR14062	non-miniature				
+Neohomaloptera johorensis	SRR39401119	PRJNA1483025	LR15487	15000000.0	61.0	120.1	0.508	present	Cobitoidei_Balitoridae_Neohomaloptera_johorensis_LR15487	proportioned-dwarf				
+Neolissochilus sp	SRR39401237	PRJNA1483025	LR15612	15000000.0	25.0	43.2	0.579	present	Cyprinoidei_Cyprinidae_Neolissochilus_sp_LR15612	non-miniature				
+Neonoemacheilus sp	SRR39401212	PRJNA1483025	LR15611	15000000.0	34.0	64.4	0.528	present	Cobitoidei_Nemacheilidae_Neonoemacheilus_sp_LR15611	non-miniature				
+Notropis chalybaeus	SRR39401073	PRJNA1483025	LR15254	15000000.0	19.0	30.2	0.629	present	Cyprinoidei_Leuciscidae_Notropis_chalybaeus_LR15254	non-miniature				
+Oliotius oligolepis	SRR39401236	PRJNA1483025	143LR15682	15000000.0	30.0	73.1	0.41	present	Cyprinoidei_Cyprinidae_Oliotius_oligolepis_143LR15682	non-miniature				
+Opsaridium sp	SRR39401200	PRJNA1483025	LR15289	15000000.0	34.0	61.3	0.555	present	Cyprinoidei_Danionidae_Opsaridium_sp_LR15289	non-miniature				
+Opsaridium sp	SRR39401198	PRJNA1483025	LR15602	15000000.0	27.0	65.8	0.411	present	Cyprinoidei_Danionidae_Opsaridium_sp_LR15602	non-miniature				
+Opsaridium sp	SRR39401199	PRJNA1483025	LR15290	15000000.0	36.0	72.7	0.495	present	Cyprinoidei_Danionidae_Opsaridium_sp_LR15290	non-miniature				
+Opsariichthys bidens	SRR39401101	PRJNA1483025	102LR15621	15000000.0	24.0	48.1	0.499	present	Cyprinoidei_Xenocyprididae_Opsariichthys_bidens_102LR15621	non-miniature				
+Opsariichthys pachycephalus	SRR39401100	PRJNA1483025	128LR15724	15000000.0	50.0	59.3	0.844	present	Cyprinoidei_Xenocyprididae_Opsariichthys_pachycephalus_128LR15724	non-miniature				
+Opsarius sp	SRR39401196	PRJNA1483025	LR12240	15000000.0	33.0	78.1	0.423	present	Cyprinoidei_Danionidae_Opsarius_sp_LR12240	non-miniature				
+Opsarius sp	SRR39401197	PRJNA1483025	142LR15666	15000000.0	39.0	68.7	0.568	present	Cyprinoidei_Danionidae_Opsarius_sp_142LR15666	non-miniature				
+Opsarius sp	SRR39401195	PRJNA1483025	LR02136	15000000.0	37.0	61.3	0.604	present	Cyprinoidei_Danionidae_Opsarius_sp_LR02136	non-miniature				
+Oreichthys sp	SRR39401235	PRJNA1483025	EA1291	15000000.0	20.0	62.0	0.323	present	Cyprinoidei_Cyprinidae_Oreichthys_sp_EA1291	non-miniature				
+Oreonectes platycephalus	SRR39401211	PRJNA1483025	LR15490	15000000.0	37.0	63.1	0.587	present	Cobitoidei_Nemacheilidae_Oreonectes_platycephalus_LR15490	non-miniature				
+Osteobrama cunma	SRR39401234	PRJNA1483025	LR09367	15000000.0	41.0	47.9	0.857	present	Cyprinoidei_Cyprinidae_Osteobrama_cunma_LR09367	non-miniature				
+Osteochilus vittatoides	SRR39401233	PRJNA1483025	LR15096	15000000.0	21.0	38.5	0.546	present	Cyprinoidei_Cyprinidae_Osteochilus_vittatoides_LR15096	non-miniature				
+Oxygaster pointoni	SRR39401099	PRJNA1483025	LR15574	15000000.0	28.0	53.0	0.528	present	Cyprinoidei_Xenocyprididae_Oxygaster_pointoni_LR15574	non-miniature				
+Paedocypris sp	SRR36627396	PRJNA1393767	LR15863A	3572123.0	0.0	299.7	0.0	absent	Cyprinoidei_incertae.sedis_Paedocypris_sp_LR15863A	progenetic-miniature				
+Paedocypris sp	SRR39401251	PRJNA1483025	LR15325		0.0	67.6	0.0	absent	Cyprinoidei_incertae.sedis_Paedocypris_sp_LR15325	progenetic-miniature				
+Pangio sp	SRR39401173	PRJNA1483025	LR15141	15000000.0	35.0	51.2	0.683	present	Cobitoidei_Cobitidae_Pangio_sp_LR15141	non-miniature				
+Parabotia bimaculata	SRR39401246	PRJNA1483025	112LR15712	15000000.0	42.0	61.5	0.683	present	Cobitoidei_Botiidae_Parabotia_bimaculatus_112LR15712	non-miniature				
+Paracanthocobitis botia	SRR39401210	PRJNA1483025	LR15504	15000000.0	47.0	68.2	0.689	present	Cobitoidei_Nemacheilidae_Paracanthocobitis_botia_LR15504	non-miniature				
+Paracrossochilus sp	SRR39401232	PRJNA1483025	LR01656	15000000.0	24.0	28.4	0.845	present	Cyprinoidei_Cyprinidae_Paracrossochilus_sp_LR01656	non-miniature				
+Paramisgurnus dabryanus	SRR23104325				0.0	18.8	0.0	absent						
+Paraspinibarbus sp	SRR39401231	PRJNA1483025	LR15618	15000000.0	25.0	41.4	0.604	present	Cyprinoidei_Cyprinidae_Paraspinibarbus_sp_LR15618	non-miniature				
+Pectenocypris sp	SRR39401193	PRJNA1483025	LR15081	15000000.0	27.0	60.4	0.447	present	Cyprinoidei_Danionidae_Pectenocypris_sp_LR15081	non-miniature				
+Pectenocypris sp	SRR39401192	PRJNA1483025	LR15349	15000000.0	28.0	60.4	0.464	present	Cyprinoidei_Danionidae_Pectenocypris_sp_LR15081	non-miniature				
+Pethia sp	SRR39401230	PRJNA1483025	LR06584	15000000.0	43.0	55.9	0.769	present	Cyprinoidei_Danionidae_Pethia_sp_LR06584	non-miniature				
+Pethia sp	SRR39401158	PRJNA1483025	LR15646	15000000.0	26.0	57.5	0.452	present	Cyprinoidei_Cyprinidae_Pethia_sp_LR15646	non-miniature				
+Petruichthys brevis	SRR39401209	PRJNA1483025	LR15189	15000000.0	43.0	63.8	0.675	present	Cobitoidei_Nemacheilidae_Petruichthys_brevis_LR15189	non-miniature				
+Phoxinus csikii	SRR39401072	PRJNA1483025	2564_2011	15000000.0	24.0	43.8	0.547	present		non-miniature				
+Plesiomyzon baotingensis	SRR39401057	PRJNA1483025	LR15476	15000000.0	54.0	93.1	0.58	present	Cobitoidei_Gastromyzontidae_Plesiomyzon_baotingensis_LR15476	non-miniature				
+Poropuntius sp	SRR39401138	PRJNA1483025	LR15083	15000000.0	23.0	46.3	0.497	present	Cyprinoidei_Cyprinidae_Poropuntius_sp_LR15083	non-miniature				
+Probarbus jullieni	SRR39401160	PRJNA1483025	LR15065	40000000.0	36.0	145.6	0.247	ambiguous	Cyprinoidei_Cyprinidae_Probarbus_jullieni_LR15065	non-miniature	10.0	54.4	0.184	between thresholds with 15 M spots (columns *_15M); repeated with 40 M (main columns)
+Protomyzon borneensis	SRR39401056	PRJNA1483025	LR15425	15000000.0	62.0	95.5	0.649	present	Cobitoidei_Gastromyzontidae_Protomyzon_borneensis_LR15425	non-miniature				
+Pseudogastromyzon sp	SRR39401055	PRJNA1483025	LR15067	15000000.0	44.0	95.7	0.46	present	Cobitoidei_Gastromyzontidae_Pseudogastromyzon_sp_LR15067	non-miniature				
+Psilorhynchus sp	SRR39401178	PRJNA1483025	LR15089	15000000.0	46.0	87.7	0.525	present	Cyprinoidei_Psilorhynchidae_Psilorhynchus_sp_LR15089	non-miniature				
+Psilorhynchus sp	SRR39401090	PRJNA1483025	LR09467	15000000.0	36.0	76.1	0.473	present	Cyprinoidei_Psilorhynchidae_Psilorhynchus_sp_LR09467	non-miniature				
+Ptychocheilus lucius	SRR39401071	PRJNA1483025	109LR15744	15000000.0	20.0	31.3	0.639	present	Cyprinoidei_Leuciscidae_Ptychocheilus_lucius_109LR15744	non-miniature				
+Puntigrus partipentazona	SRR39401161	PRJNA1483025	125LR15728	15000000.0	31.0	65.1	0.476	present	Cyprinoidei_Cyprinidae_Puntigrus_partipentazona_125LR15728	non-miniature				
+Puntigrus tetrazona	SRR39401162	PRJNA1483025	146LR15695	15000000.0	42.0	73.6	0.571	present	Cyprinoidei_Cyprinidae_Puntigrus_tetrazona_GCF_018831695.1_NCBI	non-miniature				
+Puntioplites bulu	SRR39401163	PRJNA1483025		15000000.0	20.0	37.6	0.532	present	Cyprinoidei_Cyprinidae_Puntioplites_bulu_LR15108					
+Puntius sp	SRR39401164	PRJNA1483025	EA1300	15000000.0	25.0	47.2	0.53	present	Cyprinoidei_Cyprinidae_Puntius_sp_EA1300	non-miniature				
+Raiamas guttatus	ERR3332360	PRJEB19273		15000000.0	34.0	56.4	0.603	present	Cyprinoidei_Danionidae_Raiamas_guttatus_fRaiGut1	non-miniature				
+Rasbora cephalotaenia	SRR39401259	PRJNA1483025	LR10786	15000000.0	21.0	60.6	0.346	present	Cyprinoidei_Danionidae_Rasbora_cephalotaenia_LR10786	non-miniature				
+Rasbora kalochroma	SRR36627390	PRJNA1393767	LR15877	6031254.0	186.0	373.3	0.498	present	Cyprinoidei_Danionidae_Rasbora_kalochroma_LR15877	non-miniature				
+Rasbora pauciperforata	SRR39401111	PRJNA1483025	LR10181	15000000.0	21.0	41.4	0.507	present	Cyprinoidei_Danionidae_Trigonopoma_pauciperforatum_LR10181	non-miniature				
+Rasbora trilineata	SRR39401256	PRJNA1483025	LR09847	15000000.0	15.0	44.1	0.34	present	Cyprinoidei_Danionidae_Rasbora_trilineata_LR09847	non-miniature				
+Rasboroides pallidus	SRR39401254	PRJNA1483025	LR05463		34.0	61.7	0.551	present	Cyprinoidei_Danionidae_Rasboroides_pallidus_LR05463	non-miniature				
+Rasbosoma spilocerca	SRR39401253	PRJNA1483025	LR12212	15000000.0	21.0	36.5	0.576	present	Cyprinoidei_Danionidae_Rasbosoma_spilocerca_LR12212	proportioned-dwarf				
+Rhinichthys cataractae	SRR39401070	PRJNA1483025	LR15251	15000000.0	23.0	36.5	0.631	present	Cyprinoidei_Leuciscidae_Rhinichthys_cataractae_LR15251	non-miniature				
+Rhodeus amarus	SRR39401043	PRJNA1483025	LR15661	15000000.0	26.0	42.1	0.618	present	Cyprinoidei_Acheilognathidae_Rhodeus_amarus_LR15661	non-miniature				
+Rhynchocypris lagowskii	SRR39401069	PRJNA1483025	LR15572	15000000.0	16.0	38.9	0.411	present	Cyprinoidei_Leuciscidae_Rhynchocypris_lagowskii_LR15572	non-miniature				
+Rohtee ogilbii	SRR39401216	PRJNA1483025	124LR15727	15000000.0	32.0	48.5	0.659	present	Cyprinoidei_Cyprinidae_Rohtee_ogilbii_124LR15727	non-miniature				
+Rutilus rutilus	SRR39401068	PRJNA1483025	2333_2013	15000000.0	20.0	36.7	0.545	present	Cyprinoidei_Leuciscidae_Rutilus_rutilus_GCA_951802725.1_NCBI	non-miniature				
+Sabanejewia balcanica	SRR39401172	PRJNA1483025	LR15609	15000000.0	17.0	41.6	0.409	present	Cobitoidei_Cobitidae_Sabanejewia_balcanica_LR15609	non-miniature				
+Salmostoma sp	ERR3332344	PRJEB19273		15000000.0	26.0	68.4	0.38	present						
+Sarcocheilichthys hainanensis	SRR39401102	PRJNA1483025	LR15571	40000000.0	50.0	84.3	0.593	present	Cyprinoidei_Gobionidae_Sarcocheilichthys_hainanensis_LR15571	non-miniature	8.0	32.7	0.245	between thresholds with 15 M spots (columns *_15M); repeated with 40 M (main columns)
+Sawbwa resplendens	SRR39401218	PRJNA1483025	LR15061		25.0	48.8	0.513	present	Cyprinoidei_Cyprinidae_Sawbwa_resplendens_LR15061	proportioned-dwarf				
+Scaphiodonichthys acanthopterus	SRR39401229	PRJNA1483025	LR15564	15000000.0	26.0	49.4	0.526	present	Cyprinoidei_Cyprinidae_Scaphiodonichthys_acanthopterus_LR15564	non-miniature				
+Scardinius sp	SRR39401066	PRJNA1483025	1010_2016	15000000.0	18.0	38.2	0.471	present		non-miniature				
+Schismatorhynchos heterorhynchos	SRR39401221	PRJNA1483025	LR15101	15000000.0	22.0	50.1	0.439	present	Cyprinoidei_Cyprinidae_Schismatorhynchos_heterorhynchos_LR15101	non-miniature				
+Schistura fasciolata	SRR39401207	PRJNA1483025	LR15152	15000000.0	25.0	57.9	0.432	present	Cobitoidei_Nemacheilidae_Schistura_fasciolata_LR15152	non-miniature				
+Schistura sp	SRR39401205	PRJNA1483025	LR15496	15000000.0	27.0	53.7	0.503	present	Cobitoidei_Nemacheilidae_Schistura_sp_LR15496	non-miniature				
+Schistura sp	SRR39401206	PRJNA1483025	LR15454	15000000.0	64.0	84.3	0.759	present	Cobitoidei_Nemacheilidae_Schistura_sp_LR15454	non-miniature				
+Semiplotus sp	SRR39401222	PRJNA1483025	LR09392	15000000.0	26.0	51.7	0.503	present	Cyprinoidei_Cyprinidae_Semiplotus_sp_LR09392	non-miniature				
+Semotilus atromaculatus	SRR39401065	PRJNA1483025	LR15249	15000000.0	15.0	32.7	0.459	present	Cyprinoidei_Leuciscidae_Semotilus_atromaculatus_GCA_031834385.1_NCBI	non-miniature				
+Serpenticobitis zonata	SRR39401088	PRJNA1483025	LR15357	15000000.0	47.0	72.2	0.651	present	Cobitoidei_Serpenticobitidae_Serpenticobitis_zonata_LR15357	non-miniature				
+Sewellia elongata	SRR39401054	PRJNA1483025	LR15561	15000000.0	60.0	103.8	0.578	present	Cobitoidei_Gastromyzontidae_Sewellia_elongata_LR15561	non-miniature				
+Sinibotia robusta	SRR39401097	PRJNA1483025	LR15151	15000000.0	33.0	94.4	0.35	present	Cobitoidei_Botiidae_Sinibotia_robusta_LR15151	non-miniature				
+Sinogastromyzon puliensis	SRR39401128	PRJNA1483025	LR15088	15000000.0	42.0	76.3	0.551	present	Cobitoidei_Balitoridae_Sinogastromyzon_puliensis_LR15088	non-miniature				
+Spinibarbichthys denticulatus	SRR39401223	PRJNA1483025	111LR15711	15000000.0	16.0	47.9	0.334	present	Cyprinoidei_Cyprinidae_Spinibarbichthys_denticulaltus_111LR15711	non-miniature				
+Spinibarbichthys sp	SRR39401224	PRJNA1483025	LR15617	15000000.0	23.0	47.4	0.485	present	Cyprinoidei_Cyprinidae_Spinibarbichthys_sp_LR15617	non-miniature				
+Squalidus sp	SRR39401190	PRJNA1483025	LR15579	15000000.0	27.0	37.6	0.718	present	Cyprinoidei_Gobionidae_Squalidus_sp_LR15579	non-miniature				
+Squalius cephalus	SRR39401064	PRJNA1483025	1104_2014	15000000.0	20.0	33.6	0.596	present	Cyprinoidei_Leuciscidae_Squalius_cephalus_GCA_949319135.1_NCBI	non-miniature				
+Striuntius lateristriga	SRR39401152	PRJNA1483025	LR15102	15000000.0	29.0	48.3	0.6	present	Cyprinoidei_Cyprinidae_Barbodes_lateristriga_LR15102	non-miniature				
+Striuntius lineatus	SRR39401225	PRJNA1483025	126LR15731	15000000.0	23.0	60.6	0.379	present	Cyprinoidei_Cyprinidae_Striuntius_lineatus_126LR15731	non-miniature				
+Sundadanio atomus	SRR36627395	PRJNA1393767	LR15870	2138057.0	101.0	192.1	0.526	present	Cyprinoidei_incertae.sedis_Sundadanio_atomus_LR15870	progenetic-miniature				
+Sundadanio goblinus	SRR39401248	PRJNA1483025	LR10372		16.0	44.5	0.359	present	Cyprinoidei_incertae.sedis_Sundadanio_goblinus_LR10372	progenetic-miniature				
+Sundadanio margarition	SRR39401247	PRJNA1483025	LR15082		22.0	38.5	0.572	present	Cyprinoidei_incertae.sedis_Sundadanio_margarition_LR15082	progenetic-miniature				
+Sundadanio retiarius	ERR3332345	PRJEB19273		15000000.0	23.0	33.8	0.681	present	Cyprinoidei_incertae.sedis_Sundadanio_retiarius_101LR12751	progenetic-miniature				
+Sundadanio retiarius	SRR39401245	PRJNA1483025	101LR12751		29.0	42.5	0.682	present	Cyprinoidei_incertae.sedis_Sundadanio_retiarius_101LR12751	progenetic-miniature				
+Sundoreonectes sabanus	SRR39401204	PRJNA1483025	LR15455	15000000.0	36.0	64.2	0.561	present	Cobitoidei_Nemacheilidae_Sundoreonectes_sabanus_LR15455	non-miniature				
+Syncrossus berdmorei	SRR39401095	PRJNA1483025	LR15446	40000000.0	56.0	291.9	0.192	ambiguous	Cobitoidei_Botiidae_Syncrossus_berdmorei_LR15446	non-miniature	19.0	107.6	0.177	between thresholds with 15 M spots (columns *_15M); repeated with 40 M (main columns)
+Systomus binduchitra	SRR39401226	PRJNA1483025	LR06590	15000000.0	48.0	53.5	0.898	present	Cyprinoidei_Cyprinidae_Systomus_binduchitra_LR06590	non-miniature				
+Tanakia himantegus	SRR39401045	PRJNA1483025	LR15636	15000000.0	29.0	56.4	0.514	present	Cyprinoidei_Acheilognathidae_Paratanakia_himantegus_LR15636	non-miniature				
+Tanichthys albonubes	SRR39401244	PRJNA1483025	LR15110	15000000.0	25.0	43.2	0.579	present	Cyprinoidei_Tanichthyidae_Tanichthys_albonudes_LR15110	proportioned-dwarf				
+Tanichthys micagemmae	SRR39401243	PRJNA1483025	LR02462	40000000.0	45.0	109.2	0.412	present	Cyprinoidei_Tanichthyidae_Tanichthys_micagemmae_LR02462	proportioned-dwarf	10.0	39.8	0.251	between thresholds with 15 M spots (columns *_15M); repeated with 40 M (main columns)
+Telestes muticellus	SRR39401063	PRJNA1483025	1450_2013	15000000.0	13.0	30.9	0.421	present	Cyprinoidei_Leuciscidae_Telestes_muticellus_1450_2013	non-miniature				
+Theriodes sandakanensis	SRR39401171	PRJNA1483025	LR15146	15000000.0	35.0	76.5	0.458	present	Cobitoidei_Cobitidae_Theriodes_sandakanensis_LR15146	non-miniature				
+Thryssocypris tonlesapensis	SRR39401113	PRJNA1483025	EA0635	15000000.0	56.0	85.7	0.654	present	Cyprinoidei_incertae.sedis_Thryssocypris_tonlesapensis_EA0634	non-miniature				
+Thynnichthys sp	SRR39401227	PRJNA1483025	LR12880	15000000.0	24.0	39.4	0.61	present	Cyprinoidei_Cyprinidae_Thynnichthys_sp_LR12880	non-miniature				
+Tinca tinca	SRR39401242	PRJNA1483025	1545_2010	15000000.0	32.0	44.7	0.715	present	Cyprinoidei_Tincidae_Tinca_tinca_1545_2010	non-miniature				
+Tor sp	SRR39401153	PRJNA1483025	LR09401	15000000.0	43.0	43.6	0.986	present	Cyprinoidei_Cyprinidae_Tor_sp_LR09401	non-miniature				
+Tor sp	SRR39401155	PRJNA1483025		15000000.0	25.0	50.3	0.497	present	Cyprinoidei_Cyprinidae_Tor_sp_LR09401	non-miniature				
+Traccatichthys pulcher	SRR39401089	PRJNA1483025	LR15072	15000000.0	38.0	76.7	0.495	present	Cobitoidei_Nemacheilidae_Traccatichthys_pulcher_LR15072	non-miniature				
+Travancoria elongata	SRR39401117	PRJNA1483025	LR15181	15000000.0	51.0	79.9	0.639	present	Cobitoidei_Balitoridae_Travancoria_elongata_LR15181	non-miniature				
+Trigonopoma gracile	SRR39401112	PRJNA1483025	LR08172	15000000.0	31.0	45.2	0.686	present	Cyprinoidei_Danionidae_Trigonopoma_gracile_LR08172	non-miniature				
+Trigonopoma sp	SRR39401110	PRJNA1483025	LR11656	15000000.0	20.0	36.9	0.542	present	Cyprinoidei_Danionidae_Trigonopoma_sp_LR11656	non-miniature				
+Trigonostigma espei	SRR39401109	PRJNA1483025	LR08812	15000000.0	17.0	36.9	0.461	present	Cyprinoidei_Danionidae_Trigonostigma_espei_LR08812	proportioned-dwarf				
+Trigonostigma heteromorpha	SRR39401108	PRJNA1483025	LR11086		30.0	34.0	0.882	present	Cyprinoidei_Danionidae_Trigonostigma_heteromorpha_LR11086	proportioned-dwarf				
+Vaillantella maassi	SRR39401087	PRJNA1483025	LR15334	15000000.0	61.0	95.7	0.637	present	Cobitoidei_Vaillantellidae_Vaillantella_maassii_LR15334	non-miniature				
+Vanmanenia sp	SRR39401053	PRJNA1483025	LR15188	15000000.0	40.0	83.9	0.477	present		non-miniature				
+Yaoshania pachychilus	SRR39401084	PRJNA1483025	113LR15713	15000000.0	54.0	93.9	0.575	present	Cobitoidei_Gastromyzontidae_Yaoshania_pachychilus_113LR15713	non-miniature				

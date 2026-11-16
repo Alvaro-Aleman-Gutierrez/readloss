@@ -1,0 +1,14 @@
+name: readloss
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - scipy
+  - pytest
+  - diamond=2.1.10
+  - sra-tools>=3.0
+  - blast>=2.12
+  - pip
+  - pip:
+      - -e .

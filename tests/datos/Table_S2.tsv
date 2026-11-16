@@ -1,0 +1,9 @@
+species	run	spots_analysed	reads_DCX	reads_dclk1a	reads_dclk2a	reads_dclk3	expected_DCX	obs_exp	CI95_low	CI95_high	P_le_obs_if_present	DCX_status
+Danionella cerebrum	ERR3284980	15000000	39	76	101	104	43.3	0.901	0.641	1.231	0.29	present
+Ictalurus furcatus	SRR18966194	40000000	52	84	112	174	57.0	0.912	0.681	1.196	0.28	present
+Danionella dracula	ERR2639754	15000000	1	88	75	87	38.5	0.026	0.001	0.145	7.4e-16	absent
+Danio tinwini	ERR3284969	40000000	2	102	120	150	57.3	0.035	0.004	0.126	2.2e-22	absent
+Paedocypris micromegethes	SRR11971489	12000000	2	173	113	246	82.0	0.024	0.003	0.088	8.7e-33	absent
+Paedocypris carbunculus	SRR11971490	40000000	4	698	564	867	328.0	0.012	0.003	0.031	1.7e-134	absent
+Misgurnus anguillicaudatus	SRR36982626	35000000	0	186	171	208	87.1	0.0	0.0	0.042	1.6e-38	absent
+Paramisgurnus dabryanus	SRR23104325	35000000	1	46	52	49	22.6	0.044	0.001	0.246	3.4e-09	absent
