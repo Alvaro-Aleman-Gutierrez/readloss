@@ -18,6 +18,7 @@ jobs:
           activate-environment: readloss
           channels: conda-forge,bioconda
           channel-priority: strict
+          conda-remove-defaults: "true"
       - run: readloss --version
       - run: pytest -q -rs
 
