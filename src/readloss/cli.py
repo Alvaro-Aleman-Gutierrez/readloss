@@ -6,6 +6,7 @@ readloss batch      test many runs, resumable, with automatic deeper repeat of i
 readloss subsample  ratio and limits against read depth, from one hit table
 readloss calibrate  sweep the assignment rule on samples of known status
 readloss sensitive  slower tBLASTn + BLASTx test for divergent queries or few reads
+readloss depth      reads needed, from a short pilot run or an existing hit table
 """
 import argparse
 import csv
@@ -176,6 +177,30 @@ def cmd_subsample(a):
     _write(rows, a.out)
 
 
+def cmd_depth(a):
+    """Expected candidate reads per million spots and the depth that reaches the target."""
+    f, rule, th = _setup(a)
+    if a.hits:
+        if not a.spots:
+            sys.exit("--spots (spots behind the hit table) is required with --hits")
+        row = _from_hits(a.hits, f, rule, th)
+        spots, label = a.spots, a.label or os.path.basename(a.hits)
+    else:
+        if not a.db:
+            sys.exit("--db is required with --run")
+        wd = a.workdir or tempfile.mkdtemp(prefix="readloss_")
+        os.makedirs(wd, exist_ok=True)
+        a.stream = True
+        row = _one_pass(a.run, a.pilot_spots, a, f, rule, th, wd)
+        spots, label = row["spots"], a.label or a.run
+    rate = row["expected"] / spots * 1e6
+    need = a.safety * th.min_expected / rate * 1e6 if rate > 0 else float("nan")
+    out = {"label": label, "spots_used": spots, "expected": row["expected"],
+           "expected_per_million_spots": round(rate, 3), "target_expected": th.min_expected,
+           "safety": a.safety, "recommended_spots": int(-(-need // 1e6) * 1e6) if need == need else "nan"}
+    _write([out], a.out)
+
+
 def cmd_calibrate(a):
     f, _, th = _setup(a)
     with open(a.samples) as fh:
@@ -259,6 +284,19 @@ def main(argv=None):
     s.add_argument("--out")
     _common(s)
     s.set_defaults(fn=cmd_subsample)
+
+    s = sub.add_parser("depth", help="spots needed, from a pilot run or a hit table")
+    g = s.add_mutually_exclusive_group(required=True)
+    g.add_argument("--run", help="SRA run accession for a streamed pilot")
+    g.add_argument("--hits", help="existing DIAMOND table (give --spots)")
+    s.add_argument("--spots", type=int, help="spots behind --hits")
+    s.add_argument("--pilot-spots", type=int, default=2_000_000, help="spots for the pilot [2000000]")
+    s.add_argument("--safety", type=float, default=1.5,
+                   help="factor over the minimum of expected reads, for the spread between runs [1.5]")
+    s.add_argument("--db"); s.add_argument("--threads", type=int, default=4); s.add_argument("--workdir")
+    s.add_argument("--allow-short", action="store_true"); s.add_argument("--label"); s.add_argument("--out")
+    _common(s)
+    s.set_defaults(fn=cmd_depth, keep_reads=False)
 
     s = sub.add_parser("calibrate", help="sweep margin and identity on samples of known status")
     s.add_argument("--samples", required=True, help="TSV with columns label, hits, known_status (present/absent)")

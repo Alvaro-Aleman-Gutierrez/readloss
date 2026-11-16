@@ -20,7 +20,7 @@ specimens (Alemán-Gutiérrez, preprint in preparation).
 
     conda env create -f environment.yml
     conda activate readloss
-    pytest            # 509 tests, including the published census values
+    pytest            # 512 tests, including the published census values
 
 or with the container
 
@@ -73,6 +73,16 @@ offline:
 
     readloss test --hits <(zcat ejemplos/dcx/hits/Paedocypris_micromegethes_SRR11971489.hits.tsv.gz) \
         --genes ejemplos/dcx/genes.tsv --proteins ejemplos/dcx/proteins.tsv
+
+## Choosing the depth
+
+The reads needed depend on genome size and read length, and in the doublecortin example they
+range from 0.5 to 4.9 expected candidate reads per million spots. Estimate the yield of a run
+with a short streamed pilot and download what reaches the minimum of expected reads:
+
+    readloss depth --run SRR23104325 --db fam.dmnd --genes genes.tsv --proteins proteins.tsv
+
+With too few reads the test returns `uninformative` rather than a wrong call.
 
 ## Assignment rule
 
