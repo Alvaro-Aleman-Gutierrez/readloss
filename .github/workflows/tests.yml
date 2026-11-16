@@ -1,0 +1,30 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  conda:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yml
+          activate-environment: readloss
+          channels: conda-forge,bioconda
+          channel-priority: strict
+      - run: readloss --version
+      - run: pytest -q -rs
+
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t readloss .
+      - run: docker run --rm readloss --version
+      - run: docker run --rm --entrypoint /usr/local/bin/_entrypoint.sh readloss pytest -q -rs /opt/readloss/tests
