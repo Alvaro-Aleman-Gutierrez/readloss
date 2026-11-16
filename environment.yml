@@ -9,6 +9,8 @@ dependencies:
   - diamond=2.1.10
   - sra-tools>=3.0
   - blast>=2.12
+  - matplotlib-base
+  - snakemake-minimal>=8
   - pip
   - pip:
       - -e .

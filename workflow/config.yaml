@@ -1,0 +1,20 @@
+# Edit the paths, then run
+#   snakemake -s workflow/Snakefile --configfile workflow/config.yaml --cores 16
+runs: ejemplos/dcx/runs.tsv          # columns run and label
+family: ejemplos/dcx/family.faa
+genes: ejemplos/dcx/genes.tsv
+proteins: ejemplos/dcx/proteins.tsv
+outdir: readloss_results
+spots: 15000000                      # first depth; check with readloss depth
+spots_max: 40000000                  # repeat of intermediate runs; 0 disables it
+threads: 4                           # per run
+mem_mb: 8000
+retries: 2                           # download failures are retried by Snakemake
+# assignment rule and thresholds (defaults of the doublecortin calibration)
+min_aln: 30
+margin: 5
+min_identity: 75
+absent_max: 0.10
+present_min: 0.30
+min_expected: 10
+# hits_dir: path/to/tables            # optional: reuse <run>.hits.tsv instead of downloading

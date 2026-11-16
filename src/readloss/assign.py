@@ -1,7 +1,8 @@
 """Assignment of reads to the best hit among the gene family.
 
 Input is DIAMOND blastx tabular output with the columns
-qseqid sseqid pident length bitscore.
+qseqid sseqid pident length bitscore [sstart send]. The two position columns are
+optional; with them the coverage along the candidate protein is reported.
 
 Rule (calibrated in the doublecortin study):
   * alignments shorter than ``min_aln`` aa are ignored;
@@ -18,7 +19,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 import hashlib
 
-from . import stats
+from . import diagnostics, stats
 
 DISCARDED = "_candidate_discarded"
 
@@ -34,6 +35,9 @@ class Rule:
 class Counts:
     by_gene: Counter = field(default_factory=Counter)
     candidate_identity: list = field(default_factory=list)
+    identity: dict = field(default_factory=lambda: defaultdict(list))     # gene -> identities of assigned reads
+    candidate_spans: list = field(default_factory=list)                   # (start, end) on the candidate protein
+    discarded_identity: list = field(default_factory=list)                # identity of discarded candidate reads
 
     @property
     def discarded(self):
@@ -41,15 +45,21 @@ class Counts:
 
 
 def read_hits(path, family, rule=Rule()):
-    """Group hits by read: {read: [(bitscore, gene, pident), ...]}."""
+    """Group hits by read: {read: [(bitscore, gene, pident, sstart, send), ...]}.
+
+    Positions are None for tables with five columns. The tuple order keeps the tie
+    rule of the original census: bitscore, then gene label, then identity.
+    """
     hits = defaultdict(list)
     with open(path) as fh:
         for line in fh:
             if not line.strip():
                 continue
-            q, s, pid, ln, bs = line.split()[:5]
+            f = line.split()
+            q, s, pid, ln, bs = f[:5]
+            st, en = (int(f[5]), int(f[6])) if len(f) >= 7 else (None, None)
             if int(float(ln)) >= rule.min_aln:
-                hits[q].append((float(bs), family.gene_of(s), float(pid)))
+                hits[q].append((float(bs), family.gene_of(s), float(pid), st, en))
     return hits
 
 
@@ -65,9 +75,13 @@ def assign(hits, family, rule=Rule(), reads=None):
             other = max((x[0] for x in h if x[1] != cand), default=0)
             if best[0] - other < rule.margin or best[2] < rule.min_identity:
                 c.by_gene[DISCARDED] += 1
+                c.discarded_identity.append(best[2])
                 continue
             c.candidate_identity.append(best[2])
+            if best[3] is not None:
+                c.candidate_spans.append((min(best[3], best[4]), max(best[3], best[4])))
         c.by_gene[best[1]] += 1
+        c.identity[best[1]].append(best[2])
     return c
 
 
@@ -82,6 +96,7 @@ def summarise(counts, family, th=stats.Thresholds(), alpha=0.05):
     out.update(res.as_dict())
     ids = counts.candidate_identity
     out["mean_identity_candidate"] = sum(ids) / len(ids) if ids else 0.0
+    out.update(diagnostics.run(counts, family, res, th))
     return out
 
 

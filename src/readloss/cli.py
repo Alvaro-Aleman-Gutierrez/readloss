@@ -7,6 +7,7 @@ readloss subsample  ratio and limits against read depth, from one hit table
 readloss calibrate  sweep the assignment rule on samples of known status
 readloss sensitive  slower tBLASTn + BLASTx test for divergent queries or few reads
 readloss depth      reads needed, from a short pilot run or an existing hit table
+readloss report     summary of a results table: calls, warnings and an optional figure
 """
 import argparse
 import csv
@@ -17,7 +18,10 @@ import tempfile
 from . import __version__, assign, family as fam, pipeline, sensitive, stats
 
 FMT = {"expected": "{:.1f}", "ratio": "{:.3f}", "ci_low": "{:.3f}", "ci_high": "{:.3f}",
-       "p_le_obs_if_present": "{:.2g}", "mean_identity_candidate": "{:.1f}"}
+       "p_le_obs_if_present": "{:.2g}", "mean_identity_candidate": "{:.1f}", "control_fold": "{:.2f}",
+       "control_p": "{:.2g}", "ratio_loo_min": "{:.3f}", "ratio_loo_max": "{:.3f}", "p_miss_one_copy": "{:.2g}",
+       "discarded_fraction": "{:.2f}", "discarded_identity": "{:.1f}", "identity_gap": "{:.1f}", "breadth": "{:.2f}",
+       "breadth_expected": "{:.2f}", "largest_gap_aa": "{:.0f}"}
 
 
 def _fmt(row):
@@ -201,6 +205,51 @@ def cmd_depth(a):
     _write([out], a.out)
 
 
+FLAG_HELP = {
+    "controls_disagree": "controls collect reads at different rates; one may not be single copy",
+    "call_depends_on_one_control": "leaving out one control changes the status",
+    "low_power_for_one_copy": "an absence call that would also be made for a gene present in one copy",
+    "rule_may_discard_true_reads": "many candidate reads discarded with high identity; calibrate the rule",
+    "divergent_candidate": "candidate reads much less similar than control reads; consider the sensitive mode",
+    "possible_partial_loss": "reads cover less of the candidate than expected; part of the gene may be missing",
+}
+
+
+def cmd_report(a):
+    import collections
+    with open(a.results) as fh:
+        rows = [r for r in csv.DictReader(fh, delimiter="\t")]
+    st = collections.Counter(r.get("status", "") for r in rows)
+    fl = collections.Counter(f for r in rows for f in (r.get("flags") or "").split(",") if f)
+    lines = [f"runs\t{len(rows)}"] + [f"status_{k}\t{v}" for k, v in sorted(st.items())]
+    lines += [f"flag_{k}\t{v}\t{FLAG_HELP.get(k, '')}" for k, v in fl.most_common()]
+    lines += ["", "label\tstatus\tratio\tflags"]
+    lines += [f"{r.get('label', '')}\t{r.get('status', '')}\t{r.get('ratio', '')}\t{r.get('flags', '')}"
+              for r in rows if r.get("flags") or r.get("status") in ("intermediate", "uninformative")]
+    text = "\n".join(lines) + "\n"
+    if a.out:
+        open(a.out, "w").write(text)
+    else:
+        sys.stdout.write(text)
+    if a.plot:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        th = stats.Thresholds(a.absent_max, a.present_min, a.min_expected)
+        vals = sorted((float(r["ratio"]), r.get("status", "")) for r in rows if r.get("ratio") not in ("", "nan"))
+        col = {"present": "#0072B2", "absent": "#D55E00", "intermediate": "#F0E442", "uninformative": "#BDBDBD"}
+        fig, ax = plt.subplots(figsize=(6, 3))
+        ax.axhspan(th.absent_max, th.present_min, color="#EBEBEB", lw=0)
+        for i, (v, s_) in enumerate(vals):
+            ax.plot(i, v, "D", ms=3, color=col.get(s_, "#000000"), mec="#000000" if s_ == "intermediate" else None,
+                    mew=0.5 if s_ == "intermediate" else 0)
+        ax.set_xlabel("Runs ordered by ratio")
+        ax.set_ylabel("Observed / expected")
+        for sp in ("top", "right"):
+            ax.spines[sp].set_visible(False)
+        fig.savefig(a.plot, bbox_inches="tight", dpi=200)
+
+
 def cmd_calibrate(a):
     f, _, th = _setup(a)
     with open(a.samples) as fh:
@@ -297,6 +346,15 @@ def main(argv=None):
     s.add_argument("--allow-short", action="store_true"); s.add_argument("--label"); s.add_argument("--out")
     _common(s)
     s.set_defaults(fn=cmd_depth, keep_reads=False)
+
+    s = sub.add_parser("report", help="summary of a results table")
+    s.add_argument("--results", required=True)
+    s.add_argument("--out", help="summary TSV [stdout]")
+    s.add_argument("--plot", help="PNG or PDF with the ratios (needs matplotlib)")
+    s.add_argument("--absent-max", type=float, default=0.10)
+    s.add_argument("--present-min", type=float, default=0.30)
+    s.add_argument("--min-expected", type=float, default=10.0)
+    s.set_defaults(fn=cmd_report)
 
     s = sub.add_parser("calibrate", help="sweep margin and identity on samples of known status")
     s.add_argument("--samples", required=True, help="TSV with columns label, hits, known_status (present/absent)")

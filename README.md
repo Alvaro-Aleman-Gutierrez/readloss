@@ -20,7 +20,7 @@ specimens (Alemán-Gutiérrez, preprint in preparation).
 
     conda env create -f environment.yml
     conda activate readloss
-    pytest            # 512 tests, including the published census values
+    pytest            # 520 tests, including the published census values
 
 or with the container
 
@@ -83,6 +83,39 @@ with a short streamed pilot and download what reaches the minimum of expected re
     readloss depth --run SRR23104325 --db fam.dmnd --genes genes.tsv --proteins proteins.tsv
 
 With too few reads the test returns `uninformative` rather than a wrong call.
+
+## Diagnostics and warnings
+
+Every result carries diagnostics computed from the same hit table, and a `flags` column that is
+empty when nothing looks wrong.
+
+| Column | Meaning |
+|---|---|
+| `control_fold`, `control_p` | Agreement between controls in reads per aa, and a chi-square test |
+| `ratio_loo_min`, `ratio_loo_max` | Ratio recomputed leaving out each control |
+| `p_miss_one_copy` | Chance of an absence call if the candidate were present in one copy |
+| `discarded_fraction`, `discarded_identity` | Candidate reads removed by the rule, and how similar they were |
+| `identity_gap` | Control identity minus candidate identity |
+| `breadth`, `breadth_expected`, `largest_gap_aa` | Coverage along the candidate protein |
+
+| Flag | What to do |
+|---|---|
+| `controls_disagree` | One control may not be single copy or may collect foreign reads; check it or replace it |
+| `call_depends_on_one_control` | Treat the call with caution; add a control |
+| `low_power_for_one_copy` | Download more spots before trusting an absence |
+| `rule_may_discard_true_reads` | Close paralogs; calibrate the margin and identity for this family |
+| `divergent_candidate` | Use queries from a closer species or the sensitive mode |
+| `possible_partial_loss` | Part of the gene may be missing; inspect where the reads fall |
+
+`readloss report --results results.tsv --plot ratios.pdf` summarises calls and warnings for a batch.
+
+## Large screens with Snakemake
+
+    snakemake -s workflow/Snakefile --configfile workflow/config.yaml --cores 16
+
+Each run is an independent job, so the same workflow runs on a cluster with the executor of the
+scheduler (for example `--executor slurm --jobs 50`). Failed downloads are retried, and the
+results are gathered into one table with the report and a figure.
 
 ## Assignment rule
 

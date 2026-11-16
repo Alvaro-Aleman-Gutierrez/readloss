@@ -20,7 +20,7 @@ from . import assign
 from .pipeline import which
 
 TBLASTN_FIELDS = "6 qseqid sseqid pident length"
-BLASTX_FIELDS = "6 qseqid sseqid pident length bitscore"
+BLASTX_FIELDS = "6 qseqid sseqid pident length bitscore sstart send"
 
 
 def unique_ids(lines):
@@ -106,15 +106,20 @@ def assign_sensitive(blastx_tsv, family):
     for line in open(blastx_tsv):
         if not line.strip():
             continue
-        q, s, pid, ln, bs = line.split()[:5]
+        f = line.split()
+        q, s, pid, ln, bs = f[:5]
+        span = (min(int(f[5]), int(f[6])), max(int(f[5]), int(f[6]))) if len(f) >= 7 else None
         bs, g = float(bs), family.gene_of(s)
         if q not in best or bs > best[q][0]:
-            best[q] = (bs, g, float(pid))
+            best[q] = (bs, g, float(pid), span)
         elif bs == best[q][0] and g == cand:
-            best[q] = (bs, g, float(pid))
+            best[q] = (bs, g, float(pid), span)
     c = assign.Counts()
-    for bs, g, pid in best.values():
+    for bs, g, pid, span in best.values():
         c.by_gene[g] += 1
+        c.identity[g].append(pid)
         if g == cand:
             c.candidate_identity.append(pid)
+            if span:
+                c.candidate_spans.append(span)
     return c

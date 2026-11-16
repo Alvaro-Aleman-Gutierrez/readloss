@@ -5,7 +5,7 @@ import shutil
 import subprocess
 import time
 
-DIAMOND_FIELDS = ["qseqid", "sseqid", "pident", "length", "bitscore"]
+DIAMOND_FIELDS = ["qseqid", "sseqid", "pident", "length", "bitscore", "sstart", "send"]
 
 
 def which(tool, env=None):

@@ -1,0 +1,81 @@
+"""readloss workflow for large screens on a workstation or a cluster.
+
+Each run is an independent job: streamed download, DIAMOND search and assignment.
+Results are gathered into one table with a summary report and a figure.
+Run:  snakemake -s workflow/Snakefile --configfile workflow/config.yaml --cores 16
+On a cluster add the executor of your scheduler, e.g. --executor slurm --jobs 50.
+"""
+import csv
+import os
+
+OUT = config.get("outdir", "readloss_results")
+with open(config["runs"]) as fh:
+    RUNS = {r["run"]: (r.get("label") or r["run"]) for r in csv.DictReader(fh, delimiter="\t")}
+HITS_DIR = config.get("hits_dir")      # optional: reuse existing hit tables named <run>.hits.tsv
+
+
+def common():
+    return (f"--genes {config['genes']} --proteins {config['proteins']} "
+            f"--min-aln {config.get('min_aln', 30)} --margin {config.get('margin', 5)} "
+            f"--min-identity {config.get('min_identity', 75)} --absent-max {config.get('absent_max', 0.10)} "
+            f"--present-min {config.get('present_min', 0.30)} --min-expected {config.get('min_expected', 10)}")
+
+
+rule all:
+    input:
+        f"{OUT}/results.tsv",
+        f"{OUT}/report.tsv",
+        f"{OUT}/ratios.pdf"
+
+
+rule makedb:
+    input: config["family"]
+    output: f"{OUT}/family.dmnd"
+    log: f"{OUT}/logs/makedb.log"
+    shell: "readloss makedb --family {input} --out {OUT}/family > {log} 2>&1"
+
+
+rule test_run:
+    input:
+        db=rules.makedb.output,
+        hits=(lambda w: f"{HITS_DIR}/{w.run}.hits.tsv") if HITS_DIR else []
+    output: f"{OUT}/runs/{{run}}.tsv"
+    params:
+        label=lambda w: RUNS[w.run],
+        source=lambda w: (f"--hits {HITS_DIR}/{w.run}.hits.tsv" if HITS_DIR else
+                          f"--run {w.run} --stream --spots {config.get('spots', 15000000)} "
+                          f"--spots-max {config.get('spots_max', 40000000)} --workdir {OUT}/hits/{w.run}"),
+        common=common()
+    threads: config.get("threads", 4)
+    resources:
+        mem_mb=config.get("mem_mb", 8000)
+    retries: config.get("retries", 2)
+    log: f"{OUT}/logs/{{run}}.log"
+    shell:
+        "readloss test {params.source} --label {params.label} --db {input.db} --threads {threads} "
+        "{params.common} --out {output}.tmp > {log} 2>&1 && mv {output}.tmp {output}"
+
+
+rule gather:
+    input: expand(f"{OUT}/runs/{{run}}.tsv", run=RUNS)
+    output: f"{OUT}/results.tsv"
+    run:
+        header, rows = None, []
+        for p in input:
+            with open(p) as fh:
+                lines = fh.read().splitlines()
+            header = header or lines[0]
+            rows += lines[1:]
+        with open(output[0], "w") as fh:
+            fh.write("\n".join([header] + rows) + "\n")
+
+
+rule report:
+    input: rules.gather.output
+    output:
+        tsv=f"{OUT}/report.tsv",
+        fig=f"{OUT}/ratios.pdf"
+    params:
+        th=lambda w: (f"--absent-max {config.get('absent_max', 0.10)} --present-min {config.get('present_min', 0.30)} "
+                      f"--min-expected {config.get('min_expected', 10)}")
+    shell: "readloss report --results {input} --out {output.tsv} --plot {output.fig} {params.th}"
