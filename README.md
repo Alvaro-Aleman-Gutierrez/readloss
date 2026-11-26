@@ -13,10 +13,17 @@ if the gene were present, and a status. By default a ratio of 0.10 or less is sc
 0.30 or more as presence, values in between as intermediate, and runs with fewer than 10 expected
 reads as uninformative. Intermediate runs are repeated automatically with more reads.
 
-The method was developed and validated in a census of doublecortin across 243 cypriniform
-specimens (Alemán-Gutiérrez, preprint in preparation).
+The method was developed and validated in a census of doublecortin across 243 specimens of
+225 cypriniform species (Alemán-Gutiérrez, preprint on EcoEvoRxiv,
+https://doi.org/10.32942/X2J97B).
+
+A status of present means that reads of the coding sequence were found. It does not rule out
+pseudogenization, since a gene that has lost its function can still leave reads.
 
 ## Install
+
+readloss can be installed with conda from `environment.yml` or built as a Docker container
+from the `Dockerfile`. Both are tested by continuous integration.
 
     conda env create -f environment.yml
     conda activate readloss
@@ -126,6 +133,12 @@ The rule is set with `--min-aln`, `--margin` and `--min-identity` and can be cal
 
 The counting unit is the spot. `fastq-dump --split-spot` writes both mates of a pair under
 the same identifier, so a pair whose two mates hit the family counts once.
+
+## Citation
+
+If you use readloss, please cite the doublecortin study:
+Alemán-Gutiérrez, A. (2026). Cypriniform fishes lost doublecortin repeatedly despite strong
+purifying selection on the gene. EcoEvoRxiv. https://doi.org/10.32942/X2J97B
 
 ## License
 
