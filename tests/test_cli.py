@@ -9,7 +9,7 @@ from contextlib import redirect_stdout
 from readloss import cli
 
 EX = os.path.join(os.path.dirname(__file__), "..", "ejemplos", "dcx")
-G = ["--genes", os.path.join(EX, "genes.tsv"), "--proteins", os.path.join(EX, "proteins.tsv")]
+G = ["--genes", os.path.join(EX, "genes.tsv"), "--proteins", os.path.join(EX, "proteins.tsv"), "--rule", "census"]
 
 
 def unzip(tmp, stem):

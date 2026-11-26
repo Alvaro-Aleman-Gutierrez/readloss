@@ -97,3 +97,16 @@ def search(reads_fasta, db, out_tsv, threads=4, evalue=1e-5, max_targets=5, bloc
            "-f", "6", *DIAMOND_FIELDS, "-o", out_tsv]
     subprocess.run(cmd, check=True)
     return out_tsv
+
+
+def search_proteins(query_faa, db, out_tsv, threads=4, evalue=1e-5, max_targets=5, block=0.5):
+    """DIAMOND blastp of protein fragments against the family, with the settings of ``search``.
+
+    Used by ``readloss selftest``: a fragment of 50 aa stands for a read of 150 nt.
+    """
+    exe = which("diamond", "READLOSS_DIAMOND")
+    cmd = [exe, "blastp", "-q", query_faa, "-d", db, "-e", str(evalue), "-k", str(max_targets),
+           "--max-hsps", "1", "-p", str(threads), "-b", str(block), "-c", "1", "--quiet",
+           "-f", "6", *DIAMOND_FIELDS, "-o", out_tsv]
+    subprocess.run(cmd, check=True)
+    return out_tsv

@@ -7,6 +7,7 @@ readloss subsample  ratio and limits against read depth, from one hit table
 readloss calibrate  sweep the assignment rule on samples of known status
 readloss sensitive  slower tBLASTn + BLASTx test for divergent queries or few reads
 readloss depth      reads needed, from a short pilot run or an existing hit table
+readloss selftest   fraction of reads of each gene the rule can assign (run once per family)
 readloss report     summary of a results table: calls, warnings and an optional figure
 """
 import argparse
@@ -15,13 +16,14 @@ import os
 import sys
 import tempfile
 
-from . import __version__, assign, family as fam, pipeline, sensitive, stats
+from . import __version__, assign, family as fam, pipeline, selftest, sensitive, stats
 
 FMT = {"expected": "{:.1f}", "ratio": "{:.3f}", "ci_low": "{:.3f}", "ci_high": "{:.3f}",
        "p_le_obs_if_present": "{:.2g}", "mean_identity_candidate": "{:.1f}", "control_fold": "{:.2f}",
        "control_p": "{:.2g}", "ratio_loo_min": "{:.3f}", "ratio_loo_max": "{:.3f}", "p_miss_one_copy": "{:.2g}",
        "discarded_fraction": "{:.2f}", "discarded_identity": "{:.1f}", "identity_gap": "{:.1f}", "breadth": "{:.2f}",
-       "breadth_expected": "{:.2f}", "largest_gap_aa": "{:.0f}"}
+       "breadth_expected": "{:.2f}", "largest_gap_aa": "{:.0f}", "assignable_candidate": "{:.3f}",
+       "assignable_fraction": "{:.3f}"}
 
 
 def _fmt(row):
@@ -47,8 +49,14 @@ def _common(p):
     p.add_argument("--genes", required=True, help="genes.tsv (gene, role, length_aa)")
     p.add_argument("--proteins", required=True, help="proteins.tsv (protein_id, gene)")
     p.add_argument("--min-aln", type=int, default=30, help="minimum alignment length in aa [30]")
-    p.add_argument("--margin", type=float, default=5.0, help="bits over the best non-candidate hit [5]")
-    p.add_argument("--min-identity", type=float, default=75.0, help="identity for candidate reads, percent [75]")
+    p.add_argument("--margin", type=float, default=5.0, help="bits over the best hit to any other gene [5]")
+    p.add_argument("--min-identity", type=float, default=75.0, help="identity of counted reads, percent [75]")
+    p.add_argument("--rule", choices=[assign.SYMMETRIC, assign.CENSUS], default=assign.SYMMETRIC,
+                   help="symmetric: candidate and controls pass the same margin and identity, ties discarded; "
+                        "census: rule of the doublecortin census (version 0.1.0), margin only for the "
+                        "candidate [symmetric]")
+    p.add_argument("--assignable", help="table from readloss selftest; corrects the expected count for reads "
+                                        "the rule cannot assign")
     p.add_argument("--absent-max", type=float, default=0.10, help="ratio scored as absence [0.10]")
     p.add_argument("--present-min", type=float, default=0.30, help="ratio scored as presence [0.30]")
     p.add_argument("--min-expected", type=float, default=10.0, help="expected reads below this are uninformative [10]")
@@ -69,14 +77,16 @@ def _search_opts(p):
 
 def _setup(a):
     f = fam.load(a.genes, a.proteins)
-    rule = assign.Rule(a.min_aln, a.margin, a.min_identity)
+    if getattr(a, "assignable", None):
+        fam.load_assignable(a.assignable, f)
+    rule = assign.Rule(a.min_aln, a.margin, a.min_identity, a.rule)
     th = stats.Thresholds(a.absent_max, a.present_min, a.min_expected)
     return f, rule, th
 
 
 def _from_hits(hits_tsv, f, rule, th):
     hits = assign.read_hits(hits_tsv, f, rule)
-    return assign.summarise(assign.assign(hits, f, rule), f, th)
+    return assign.summarise(assign.assign(hits, f, rule), f, th, rule=rule)
 
 
 def _one_pass(run, spots, a, f, rule, th, wd):
@@ -176,7 +186,7 @@ def cmd_subsample(a):
             row = {"fraction": fr, "replicate": rep}
             if a.spots:
                 row["spots"] = round(a.spots * fr)
-            row.update(assign.summarise(assign.assign(hits, f, rule, reads=keep), f, th))
+            row.update(assign.summarise(assign.assign(hits, f, rule, reads=keep), f, th, rule=rule))
             rows.append(row)
     _write(rows, a.out)
 
@@ -212,6 +222,7 @@ FLAG_HELP = {
     "rule_may_discard_true_reads": "many candidate reads discarded with high identity; calibrate the rule",
     "divergent_candidate": "candidate reads much less similar than control reads; consider the sensitive mode",
     "possible_partial_loss": "reads cover less of the candidate than expected; part of the gene may be missing",
+    "low_assignable_fraction": "the rule can assign few candidate reads (selftest); the status is uninformative",
 }
 
 
@@ -257,7 +268,7 @@ def cmd_calibrate(a):
     rows = []
     for m in [float(x) for x in a.margins.split(",")]:
         for i in [float(x) for x in a.identities.split(",")]:
-            rule = assign.Rule(a.min_aln, m, i)
+            rule = assign.Rule(a.min_aln, m, i, a.rule)
             ratios = {"present": [], "absent": []}
             for s in samples:
                 res = _from_hits(s["hits"], f, rule, th)
@@ -273,7 +284,28 @@ def cmd_calibrate(a):
     _write(rows, a.out)
 
 
+def cmd_selftest(a):
+    f = fam.load(a.genes, a.proteins)
+    rule = assign.Rule(a.min_aln, a.margin, a.min_identity, a.rule)
+    if a.hits:
+        rows = selftest.run_hits(f, a.hits, rule)
+    else:
+        if not a.family:
+            sys.exit("selftest needs --family (protein FASTA) or --hits (simulated reads named GENE::...)")
+        rows = selftest.run_protein(f, a.family, rule, db=a.db, length=a.length, step=a.step,
+                                    divergence=a.divergence, seed=a.seed, threads=a.threads, workdir=a.workdir)
+    for r in rows:
+        r["rule"] = rule.mode
+    _write(rows, a.out)
+    cand = [r for r in rows if r["role"] == "candidate"][0]
+    if cand["assignable_fraction"] < 0.2:
+        print(f"warning: only {cand['assignable_fraction']:.0%} of candidate reads can be assigned; "
+              "tests of this family will be uninformative", file=sys.stderr)
+
+
 def cmd_sensitive(a):
+    if a.assignable:
+        sys.exit("--assignable applies to the DIAMOND test, not to the sensitive mode")
     f = fam.load(a.genes, a.proteins)
     th = stats.Thresholds(a.absent_max, a.present_min, a.min_expected)
     wd = a.workdir or tempfile.mkdtemp(prefix="readloss_sens_")
@@ -346,6 +378,22 @@ def main(argv=None):
     s.add_argument("--allow-short", action="store_true"); s.add_argument("--label"); s.add_argument("--out")
     _common(s)
     s.set_defaults(fn=cmd_depth, keep_reads=False)
+
+    s = sub.add_parser("selftest", help="fraction of reads of each gene the rule can assign")
+    g = s.add_mutually_exclusive_group(required=True)
+    g.add_argument("--family", help="FASTA with every protein of the family (fragments are cut from it)")
+    g.add_argument("--hits", help="hit table of reads simulated elsewhere, identifiers GENE::anything")
+    s.add_argument("--db", help="DIAMOND database of the family [built from --family]")
+    s.add_argument("--length", type=int, default=50, help="fragment length in aa, read length / 3 [50]")
+    s.add_argument("--step", type=int, default=5, help="distance between fragment starts in aa [5]")
+    s.add_argument("--divergence", type=float, default=0.0,
+                   help="fraction of residues substituted at random, to mimic a divergent species [0]")
+    s.add_argument("--seed", type=int, default=1)
+    s.add_argument("--threads", type=int, default=4)
+    s.add_argument("--workdir")
+    s.add_argument("--out", help="output TSV, to pass to --assignable [stdout]")
+    _common(s)
+    s.set_defaults(fn=cmd_selftest)
 
     s = sub.add_parser("report", help="summary of a results table")
     s.add_argument("--results", required=True)

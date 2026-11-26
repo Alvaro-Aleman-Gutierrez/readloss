@@ -27,7 +27,7 @@ from the `Dockerfile`. Both are tested by continuous integration.
 
     conda env create -f environment.yml
     conda activate readloss
-    pytest            # 520 tests, including the published census values
+    pytest            # 534 tests, including the published census values
 
 or with the container
 
@@ -113,6 +113,7 @@ empty when nothing looks wrong.
 | `rule_may_discard_true_reads` | Close paralogs; calibrate the margin and identity for this family |
 | `divergent_candidate` | Use queries from a closer species or the sensitive mode |
 | `possible_partial_loss` | Part of the gene may be missing; inspect where the reads fall |
+| `low_assignable_fraction` | The rule can assign few candidate reads (from `selftest`); the status is set to uninformative |
 
 `readloss report --results results.tsv --plot ratios.pdf` summarises calls and warnings for a batch.
 
@@ -126,10 +127,46 @@ results are gathered into one table with the report and a figure.
 
 ## Assignment rule
 
-Alignments of at least 30 aa. A read counts for the candidate only if its best hit is the
-candidate, beats the best non-candidate hit by at least 5 bits, and has at least 75% identity.
-The rule is set with `--min-aln`, `--margin` and `--min-identity` and can be calibrated with
-`readloss calibrate` on species of known status.
+Alignments of at least 30 aa. Each read goes to the gene of its best hit.
+
+- A read of the candidate counts only if it beats the best hit to any other gene by at least
+  5 bits and has at least 75% identity.
+- A read of a control counts only if it beats the best hit to the candidate by at least 5 bits.
+- A tie never counts for the candidate or a control, whatever the gene names.
+
+This is the `symmetric` rule, the default from version 0.2.0. Reads that cannot tell the
+candidate from a control are removed from both sides, so the ratio is not biased when the two
+are nearly identical, as homeologs of an allopolyploid or recent duplicates. The rule of
+version 0.1.0, under which only candidate reads had to pass the margin and ties went to the
+gene with the later name, is kept as `--rule census` and reproduces the doublecortin census
+exactly. On the four example species the two rules give the same status and ratios within
+0.03, but with a candidate nearly identical to its control the census rule can call a present
+gene absent.
+
+The rule is set with `--rule`, `--min-aln`, `--margin` and `--min-identity` and can be
+calibrated with `readloss calibrate` on species of known status.
+
+## Detectability: selftest
+
+The ratio assumes that reads of the candidate and of the controls can be assigned to their
+genes. Run `selftest` once per family to check it:
+
+    readloss selftest --family family.faa --genes genes.tsv --proteins proteins.tsv --out selftest.tsv
+    readloss test --run SRR11971489 --db fam.dmnd --genes genes.tsv --proteins proteins.tsv \
+        --assignable selftest.tsv
+
+`selftest` cuts every candidate and control protein into fragments the length of a read
+(`--length 50` aa for 150 nt reads), can add random substitutions to mimic a divergent species
+(`--divergence 0.1`), searches them against the family with the settings of the real search and
+applies the same rule. It reports, for each gene, the fraction of fragments assigned back to it.
+With `--assignable` the expected count uses those fractions,
+
+    expected = control reads / sum(control length x assignable) x candidate length x assignable
+
+and a candidate with an assignable fraction below 0.2 is scored uninformative, because an absence
+call would mean nothing. In the doublecortin family the fractions are 0.98 for DCX and 0.90 and
+0.96 for the controls. Reads simulated in another way, for example at the nucleotide level for
+homeologs, can be evaluated with `selftest --hits`, naming each read `GENE::anything`.
 
 The counting unit is the spot. `fastq-dump --split-spot` writes both mates of a pair under
 the same identifier, so a pair whose two mates hit the family counts once.

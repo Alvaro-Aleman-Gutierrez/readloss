@@ -27,6 +27,11 @@ class Family:
     controls: list
     lengths: dict                       # gene -> aa (candidate and controls)
     protein_gene: dict = field(default_factory=dict)
+    assignable: dict = field(default_factory=dict)   # gene -> fraction of its reads the rule can assign (selftest)
+
+    def eff_length(self, gene):
+        """Length that collects assignable reads: protein length times the assignable fraction (1 if unknown)."""
+        return self.lengths[gene] * self.assignable.get(gene, 1.0)
 
     def gene_of(self, protein_id):
         try:
@@ -65,3 +70,15 @@ def load(genes_tsv, proteins_tsv):
             raise ValueError(f"protein {r['protein_id']!r} maps to unknown gene {r['gene']!r}")
         pg[r["protein_id"]] = r["gene"]
     return Family(cand[0], ctrls, lengths, pg)
+
+
+def load_assignable(path, family):
+    """Read the assignable fractions written by ``readloss selftest`` into ``family``."""
+    with open(path, newline="") as fh:
+        rows = list(csv.DictReader(fh, delimiter="\t"))
+    a = {r["gene"]: float(r["assignable_fraction"]) for r in rows}
+    missing = [g for g in [family.candidate, *family.controls] if g not in a]
+    if missing:
+        raise ValueError(f"selftest table lacks {', '.join(missing)}; run selftest with the same genes.tsv")
+    family.assignable = {g: a[g] for g in [family.candidate, *family.controls]}
+    return family

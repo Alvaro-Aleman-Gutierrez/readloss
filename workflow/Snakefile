@@ -18,7 +18,9 @@ def common():
     return (f"--genes {config['genes']} --proteins {config['proteins']} "
             f"--min-aln {config.get('min_aln', 30)} --margin {config.get('margin', 5)} "
             f"--min-identity {config.get('min_identity', 75)} --absent-max {config.get('absent_max', 0.10)} "
-            f"--present-min {config.get('present_min', 0.30)} --min-expected {config.get('min_expected', 10)}")
+            f"--present-min {config.get('present_min', 0.30)} --min-expected {config.get('min_expected', 10)} "
+            f"--rule {config.get('rule', 'symmetric')}"
+            + (f" --assignable {config['assignable']}" if config.get("assignable") else ""))
 
 
 rule all:

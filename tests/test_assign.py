@@ -49,7 +49,8 @@ def test_same_as_original(tmp_path, fam, seed):
     f = tmp_path / "hits.tsv"
     synthetic(f, 400, seed)
     o = original(f)
-    c = assign.assign(assign.read_hits(f, fam), fam)
+    rule = assign.Rule(mode=assign.CENSUS)
+    c = assign.assign(assign.read_hits(f, fam, rule), fam, rule)
     s = assign.summarise(c, fam)
     assert s["observed"] == int(o["DCX"])
     assert s["reads_dclk1a"] == int(o["dclk1a"])

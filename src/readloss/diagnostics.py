@@ -11,6 +11,7 @@ identity_gap         mean identity of control reads minus mean identity of candi
 breadth              fraction of the candidate protein covered by kept reads (needs sstart and send)
 breadth_expected     breadth expected for that number of reads if they fell at random along the protein
 largest_gap_aa       longest stretch of the candidate protein without reads
+assignable_candidate fraction of candidate reads the rule can assign, from selftest (blank without it)
 flags                comma-separated warnings (empty when nothing looks wrong)
 """
 import math
@@ -27,6 +28,7 @@ DISCARD_IDENTITY_MIN = 85.0   # discarded reads this similar to the query may be
 IDENTITY_GAP_MAX = 10.0
 BREADTH_MIN = 0.6         # observed over expected breadth below this suggests a partial loss
 MIN_READS_COVERAGE = 10
+ASSIGNABLE_MIN = 0.2      # below this the candidate cannot be told from the rest of the family
 
 
 def _mean(v):
@@ -36,8 +38,8 @@ def _mean(v):
 def control_agreement(counts, family):
     ctrl = family.controls
     n = [counts.by_gene.get(g, 0) for g in ctrl]
-    L = [family.lengths[g] for g in ctrl]
-    if len(ctrl) < 2 or sum(n) == 0:
+    L = [family.eff_length(g) for g in ctrl]
+    if len(ctrl) < 2 or sum(n) == 0 or min(L) <= 0:
         return float("nan"), float("nan")
     rates = [x / l for x, l in zip(n, L)]
     fold = max(rates) / min(rates) if min(rates) > 0 else float("inf")
@@ -55,8 +57,10 @@ def leave_one_out(counts, family):
     vals = []
     for g in ctrl:
         keep = [c for c in ctrl if c != g]
-        e = stats.expected_reads([counts.by_gene.get(c, 0) for c in keep], [family.lengths[c] for c in keep],
-                                 family.lengths[family.candidate])
+        if sum(family.eff_length(c) for c in keep) <= 0:
+            continue
+        e = stats.expected_reads([counts.by_gene.get(c, 0) for c in keep], [family.eff_length(c) for c in keep],
+                                 family.eff_length(family.candidate))
         if e > 0:
             vals.append(obs / e)
     return (min(vals), max(vals)) if vals else (float("nan"), float("nan"))
@@ -111,6 +115,10 @@ def run(counts, family, res, th):
         flags.append("divergent_candidate")
     if br == br and obs >= MIN_READS_COVERAGE and bexp > 0 and br / bexp < BREADTH_MIN:
         flags.append("possible_partial_loss")
+    ac = family.assignable.get(family.candidate)
+    if ac is not None and ac < ASSIGNABLE_MIN:
+        flags.append("low_assignable_fraction")
     return {"control_fold": fold, "control_p": cp, "ratio_loo_min": lo, "ratio_loo_max": hi,
             "p_miss_one_copy": pm, "discarded_fraction": dfrac, "discarded_identity": did, "identity_gap": gap,
-            "breadth": br, "breadth_expected": bexp, "largest_gap_aa": lg, "flags": ",".join(flags)}
+            "breadth": br, "breadth_expected": bexp, "largest_gap_aa": lg,
+            "assignable_candidate": ac if ac is not None else "", "flags": ",".join(flags)}

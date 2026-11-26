@@ -17,4 +17,6 @@ min_identity: 75
 absent_max: 0.10
 present_min: 0.30
 min_expected: 10
+rule: symmetric                      # census reproduces version 0.1.0
+# assignable: selftest.tsv            # from readloss selftest; corrects the expected count
 # hits_dir: path/to/tables            # optional: reuse <run>.hits.tsv instead of downloading
