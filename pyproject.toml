@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "readloss"
-version = "0.2.0"
+version = "0.3.0"
 description = "Test gene loss from raw genomic reads with single-copy paralog controls"
 readme = "README.md"
 license = {text = "MIT"}

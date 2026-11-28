@@ -19,4 +19,8 @@ present_min: 0.30
 min_expected: 10
 rule: symmetric                      # census reproduces version 0.1.0
 # assignable: selftest.tsv            # from readloss selftest; corrects the expected count
+# panel_faa: panel.faa                # single-copy genes (readloss panel); second expectation and GC curve
+# blocks: 4                           # spread the spots along each run
+# cds: cds.fna                        # coding sequences of candidate and controls, for the GC diagnostics
+# gc_correct: false
 # hits_dir: path/to/tables            # optional: reuse <run>.hits.tsv instead of downloading

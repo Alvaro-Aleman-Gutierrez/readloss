@@ -10,7 +10,12 @@ import os
 
 OUT = config.get("outdir", "readloss_results")
 with open(config["runs"]) as fh:
-    RUNS = {r["run"]: (r.get("label") or r["run"]) for r in csv.DictReader(fh, delimiter="\t")}
+    _rows = list(csv.DictReader(fh, delimiter="\t"))
+RUNS = {r["run"]: (r.get("label") or r["run"]) for r in _rows}
+SEX = {r["run"]: r["sex"] for r in _rows if (r.get("sex") or "").strip()}     # optional column sex
+COPIES = {r["run"]: r["copies"] for r in _rows if (r.get("copies") or "").strip()}  # optional, gene=n,gene=n
+SPOTS = {r["run"]: r["spots"] for r in _rows if (r.get("spots") or "").strip()}      # optional, from readloss depth
+PANEL_FAA = config.get("panel_faa")    # optional: panel of single-copy genes built into the database
 HITS_DIR = config.get("hits_dir")      # optional: reuse existing hit tables named <run>.hits.tsv
 
 
@@ -20,7 +25,10 @@ def common():
             f"--min-identity {config.get('min_identity', 75)} --absent-max {config.get('absent_max', 0.10)} "
             f"--present-min {config.get('present_min', 0.30)} --min-expected {config.get('min_expected', 10)} "
             f"--rule {config.get('rule', 'symmetric')}"
-            + (f" --assignable {config['assignable']}" if config.get("assignable") else ""))
+            + (f" --assignable {config['assignable']}" if config.get("assignable") else "")
+            + (f" --panel {OUT}/family.panel.tsv" if PANEL_FAA else "")
+            + (f" --cds {config['cds']}" if config.get("cds") else "")
+            + (" --gc-correct" if config.get("gc_correct") else ""))
 
 
 rule all:
@@ -34,7 +42,8 @@ rule makedb:
     input: config["family"]
     output: f"{OUT}/family.dmnd"
     log: f"{OUT}/logs/makedb.log"
-    shell: "readloss makedb --family {input} --out {OUT}/family > {log} 2>&1"
+    params: panel=f"--panel {PANEL_FAA}" if PANEL_FAA else ""
+    shell: "readloss makedb --family {input} {params.panel} --out {OUT}/family > {log} 2>&1"
 
 
 rule test_run:
@@ -45,8 +54,11 @@ rule test_run:
     params:
         label=lambda w: RUNS[w.run],
         source=lambda w: (f"--hits {HITS_DIR}/{w.run}.hits.tsv" if HITS_DIR else
-                          f"--run {w.run} --stream --spots {config.get('spots', 15000000)} "
-                          f"--spots-max {config.get('spots_max', 40000000)} --workdir {OUT}/hits/{w.run}"),
+                          f"--run {w.run} --stream --spots {SPOTS.get(w.run, config.get('spots', 15000000))} "
+                          f"--spots-max {config.get('spots_max', 40000000)} --workdir {OUT}/hits/{w.run} "
+                          f"--blocks {config.get('blocks', 1)}")
+               + (f" --sex {SEX[w.run]}" if w.run in SEX else "")
+               + (f" --copies {COPIES[w.run]}" if w.run in COPIES else ""),
         common=common()
     threads: config.get("threads", 4)
     resources:
